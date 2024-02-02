@@ -67,10 +67,12 @@ Decider(3,4,x) <=> 3x^4 == y
 Contains Decider(3,3,x) <=> 3x^3 == y
 Contains Decider(3,2,x) <=> 3x^2 == y
 Contains Decider(3,1,x) <=> 3x^1 == y
+Contains Decider(3,0,x) <=> 3x^0 == y
 
 Hence it can be generalized to:
 Decider(constant,degree,x) contains the sequence set 
-{Decider(constant,degree,x),Decider(constant,degree-1,x),...,Decider(constant,1,x)}
+{Decider(constant,degree,x),Decider(constant,degree-1,x),...,Decider(constant,0,x)}
+{start,...,finish}
 </pre>
 
 <h3>3. Addition</h3>
