@@ -24,18 +24,14 @@
 This is part 2 of the article, "<a href="https://www.ericung.com/Articles/2024/alanguageofpolynomials.html">A Language of Polynomials</a>", with concrete examples of how to use it including constructing the one way function using the picking function.
 
 <h3>1. Starting With A Theorem Of Infiniteness<h3>
-Starting With A Theorem Of Infiniteness
 
 <h3>2. Mapping Out Worlds</h3>
-Mapping Out Worlds
 
 <h3>3. Euler's Constant</h3>
-Euler's Constant
 
 <h3>4. Sketching Into Code</h3>
-Sketching Into Code
 
-<textarea>
+<pre>
 bool generalizedMD(int y)
 {
     if (y == 0)
@@ -63,13 +59,16 @@ bool generalizedMD(int y)
     }
     return true;
 }
-</textarea>
+</pre>
 
 <h3>5. Gather Some Data</h3>
-Gathering Some Data
 
-// Generates negatives from a general monomial decider represented as an algorithm so
-// that we can collect data about the negatives
+<p>Gathering Some Data</p>
+
+<p>// Generates negatives from a general monomial decider represented as an algorithm so
+// that we can collect data about the negatives</p>
+
+<pre>
 int[] Generator(int max)
 {
     int[] result = new int[max + 1];
@@ -101,11 +100,14 @@ int[] Generator(int max)
 
     return result;
 }
+</pre>
 Logs for the curious.
 
 <h3>6. Representing Monomial Deciders As Code</h3>
-Representing Monomial Deciders As Code
 
+<p>Representing Monomial Deciders As Code</p>
+
+<pre>
 // After getting some log results, we can construct a decider
 bool MonomialDecider2xx(int y)
 {
@@ -156,19 +158,24 @@ bool MonomialDecider2xx(int y)
 
     return false;
 }
+</pre>
+
 Logs for the curious.
 
 <h3>7. Negative Numbers</h3>
-Negative Numbers
+
+<p>Negative Numbers</p>
 
 <h3>8. Pi</h3>
-Pi
+<p>Pi</p>
 
 <h3>9. Fibonacci</h3>
-Fibonnaci
 
-Let's take apart the fibonacci sequence and try to find some patterns.
+<p>Fibonnaci</p>
 
+<p>Let's take apart the fibonacci sequence and try to find some patterns.</p>
+
+<pre>
 int fibonacci(int n)
 {
     if (n == 0)
@@ -189,6 +196,9 @@ int fibonacci(int n)
 
     return y;
 }
+</pre>
+
+<pre>
 Here's the log for the first 14 entries.
 
 f(	0	) =		0		Ex = 0		eY = 0
@@ -206,16 +216,17 @@ f(	11	) =		89		Ex = 1		eY = 1
 f(	12	) =		144		Ex = 0		eY = 0
 f(	13	) =		233		Ex = 1		eY = 1
 f(	14	) =		377		Ex = 0		eY = 1
-Logs for the curious.
+</pre>
+
+<p>Logs for the curious.</p>
 
 <h3>10. Analysis Of Parity In Fibonacci</h3>
-10AnalysisOfParityInFibonacci
 
 <h3>11. Redrawing the Fibonacci Sequence</h3>
-11RedrawingTheFibonacciSequence
 
-Fibonacci generator with the set of generator functions.
+<p>Fibonacci generator with the set of generator functions.</p>
 
+<pre>
 int fibonacciGenerator(int n)
 {
     int stateX = 0;
@@ -258,15 +269,16 @@ int fibonacciGenerator(int n)
 
     return stateX;
 }
-Logs for the curious.
+</pre>
+
+<p>Logs for the curious.</p>
 
 <h3>12. The Fibonacci Decider</h3>
-12FibonacciDecider
 
-Given a sequence of length six, we can decide if it forms a valid fibonacci sequence.
-The following is a log of calculations.
+<p>Given a sequence of length six, we can decide if it forms a valid fibonacci sequence.
+The following is a log of calculations.</p>
 
-
+<pre>
 x1 = 144, y1 = 89, z1 = 55, x2 = 34, y2 = 21, z2 = 13
 
 144 = 89 - 13 + 34 - 21 + 55 = 144
@@ -275,10 +287,9 @@ x1 = 144, y1 = 89, z1 = 55, x2 = 34, y2 = 21, z2 = 13
 34 = 21 - 55 + 144 - 89 + 13 = 34
 21 = 55 - 144 + 89 - 13 + 34 = 21
 55 = 144 - 89 + 13 - 34 + 21 = 55
+</pre>
 
 <h3>13. The Fibonacci Picking Function</h3>
-
-13FibonacciPickingFunction
 
 <h1>References</h1>
 Ung, E. (2023). A Language of Polynomials (Version 1.0.0). https://github.com/ericung/languageofpolynomials
