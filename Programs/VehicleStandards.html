@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>Vehicle Standards</title>
+	</head>
+	<body>
+		<div>
+			<p>Sales 1</p>
+			<input id="sales1" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>MSRP1</p>
+			<input id="msrp1" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>Standard1</p>
+			<input id="standard1" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>Sales 2</p>
+			<input id="sales2" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>MSRP2</p>
+			<input id="msrp2" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>Standard2</p>
+			<input id="standard2" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>Standard Difference</p>
+			<input id="standarddifference" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>Total Sales</p>
+			<input id="totalsales" onchange="onChange()"/>
+		</div>
+		<div>
+			<p>Unit Difference</p>
+			<input id="unitdifference" onchange="onChange()"/>
+		</div>
+	</body>
+</html>
+
+<script>
+	function onChange()
+	{
+		var sales1 = document.getElementById("sales1").value;
+		var msrp1 = document.getElementById("msrp1").value;
+		var standard1 = Standard(msrp1,sales1);
+		var sales2 = document.getElementById("sales2").value;
+		var msrp2 = document.getElementById("msrp2").value;
+		var standard2 = Standard(msrp2,sales2);
+		var standarddifference = StandardDifference(standard1, standard2);
+		var totalsales = TotalSales(sales1, sales2);
+		var unitdifference = UnitDifference(standarddifference, totalsales);
+		
+		document.getElementById("standard1").value = standard1;
+		document.getElementById("standard2").value = standard2;
+		document.getElementById("standarddifference").value = standarddifference;
+		document.getElementById("totalsales").value = totalsales;
+		document.getElementById("unitdifference").value = unitdifference;
+	}
+
+	function StandardDifference(standard1, standard2)
+	{
+		return standard1 - standard2;
+	}
+
+	function TotalSales(sales1, sales2)
+	{
+		return Number(sales1) + Number(sales2);
+	}
+
+	function UnitDifference(totalsales, standarddifference)
+	{
+		return totalsales * standarddifference;
+	}
+
+	function Standard(product, cost)
+	{
+		return Math.pow(cost, 1/product);
+	}
+</script>
