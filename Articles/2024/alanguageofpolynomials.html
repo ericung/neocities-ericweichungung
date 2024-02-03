@@ -78,14 +78,43 @@ Decider(constant,degree,x) contains the sequence set
 <h3>3. Addition</h3>
 <p>Addition</p>
 <img src="https://raw.seadn.io/files/d96f3bac7ac6f73948312b45b9e84c84.jpg"/>
+<pre>
+Given the first example:
+p(x) = 3x^2 + 4x + 5
+p(2) = 3(2)^2 + 4(2) + 5
+p(2) = 12 + 8 + 5
+
+m2 = Decider(3,2,x) = 3x^2
+m1 = Decider(4,1,x) = 4x
+m0 = Decider(5,0,x) = 5
+
+Generalized to mx where x is the degree
+
+Given polynomial functions, p1 and p2, they are commutative
+p1(x) = ma + ... + m0
+p2(x) = nb + ... + n0
+
+p1(x) + p2(x) = ma + m[x+1] + nb + n[y+1] + ... + (mx + ny) + ... + (m0 + n0)
+where x == y
+
+Decider(cx,dx,x) + Decider(cy,dy,x) = Decider(cx+cy,dx,x) = Deciders(cx+cy,dy,x) iff dx == dy
+</pre>
 
 <h3>4. Product</h3>
 <p>Product</p>
 <img src="https://raw.seadn.io/files/10245ec92f9e33bdb10e3b33e57ff28c.jpg"/>
 
+Given two monomials in the language, a and b, the product of a and b is also in the language.
+
 <h3>5. Problem with Matrices</h3>
 <p>Problem with Matrices</p>
 <img src="https://raw.seadn.io/files/8c1967ffe7f5daf06d4350a3d3cf8561.jpg"/>
+
+<pre>
+Given a polynomial p of x, show that the monomial deciders represented in the language can't be contained in a finite matrix after a set number, n, such that x^n.
+
+axa * bxb = nxn such that a != b and a,b < n
+</pre>
 
 <h3>6. Multivariable Polynomials</h3>
 <p>Multivariable Polynomials</p>
