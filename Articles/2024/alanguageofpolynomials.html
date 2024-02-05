@@ -258,6 +258,10 @@ Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) <=> {sequence of permutations of {x
 Decider(1,x,6)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}
 
 Is shown that by the permutation of the order of operations that Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) is not the same set as Decider(1,x,6)/Decider(1,x,2)
+
+<b>Theorem of Reversing</b>
+<pre>
+Given two deciders x,y in Deciders of m(x), x == y iff sequence of all the states are equivalent, representation-wise, from start to finish
 </pre>
 
 <h3>14. Corollary of Reversing</h3>
@@ -273,8 +277,6 @@ Given a decider, d, in Decider of m(x) then d has some path, p, such that Path(d
 
 Example:
 Choose some x such that it is in Path(Decider(1,x,6)/Decider(1,x,2)) where x = 001111
-</pre>
-
 </pre>
 
 <h3>15. Godel's Theorem</h3>
