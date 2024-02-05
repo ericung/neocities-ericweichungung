@@ -28,7 +28,7 @@ Each slide can be formalized even further as their own research paper but presen
     </p>
 
 <h3>1. Foundations</h3>
-<p>Foundations</p>
+
 <img src="https://raw.seadn.io/files/9f75ebe154270e7e46563d2c73d175ea.jpg"/>
 
 <p>There exists a language such that it decides each monomial in the polynomial. In other words, there exists a set of deciders for each monomial in the polynomial where it decides if y is in the monomial.</p>
@@ -48,26 +48,26 @@ and x<i>degree times</i> is the finish
 then loop around x1 to x<i>degree times</i> until it stops
 
 Decider for ax^2 is Decider(3,2,2) = 3(2)^2 == 12
-Decider for bx is Decider(4,1,2) = 4(2)^1 == 8
-Decider for c is Decider(1,1,2) = 5(2)^0 == 5
+Decider for bx is Decider(4,2,1) = 4(2)^1 == 8
+Decider for c is Decider(1,2,1) = 5(2)^0 == 5
 
 </pre>
 
 <h3>2. Monomial of One Degree</h3>
-<p>Monomial of One Degree</p>
+
 <img src="https://raw.seadn.io/files/4cb6308ffe2e412653c4e97ef8d9f444.jpg"/>
 
 <pre>
 Given the definition of a decider:
-Decider is a function Decider(constant, degree, x) <=> constant*x^degree == y
+Decider is a function Decider(constant, x, degree) <=> constant*x^degree == y
 
 A decider of at least one degree
 
 Decider(3,4,x) <=> 3x^4 == y
-Contains Decider(3,3,x) <=> 3x^3 == y
-Contains Decider(3,2,x) <=> 3x^2 == y
-Contains Decider(3,1,x) <=> 3x^1 == y
-Contains Decider(3,0,x) <=> 3x^0 == y
+Contains Decider(3,x,3) <=> 3x^3 == y
+Contains Decider(3,x,2) <=> 3x^2 == y
+Contains Decider(3,x,1) <=> 3x^1 == y
+Contains Decider(3,x,0) <=> 3x^0 == y
 
 Hence it can be generalized to:
 Decider(constant,degree,x) contains the sequence set 
@@ -76,7 +76,7 @@ Decider(constant,degree,x) contains the sequence set
 </pre>
 
 <h3>3. Addition</h3>
-<p>Addition</p>
+
 <img src="https://raw.seadn.io/files/d96f3bac7ac6f73948312b45b9e84c84.jpg"/>
 <pre>
 Given the first example:
@@ -84,9 +84,9 @@ p(x) = 3x^2 + 4x + 5
 p(2) = 3(2)^2 + 4(2) + 5
 p(2) = 12 + 8 + 5
 
-m2 = Decider(3,2,x) = 3x^2
-m1 = Decider(4,1,x) = 4x
-m0 = Decider(5,0,x) = 5
+m2 = Decider(3,x,2) = 3x^2
+m1 = Decider(4,x,1) = 4x
+m0 = Decider(5,x,0) = 5
 
 Generalized to mx where x is the degree
 
@@ -97,17 +97,17 @@ p2(x) = nb + ... + n0
 p1(x) + p2(x) = ma + m[x+1] + nb + n[y+1] + ... + (mx + ny) + ... + (m0 + n0)
 where x == y
 
-Decider(cx,dx,x) + Decider(cy,dy,x) = Decider(cx+cy,dx,x) = Deciders(cx+cy,dy,x) iff dx == dy
+Decider(cx,x,dx) + Decider(cy,x,dy) = Decider(cx+cy,x,dx) = Deciders(cx+cy,x,dy) iff dx == dy
 </pre>
 
 <h3>4. Product</h3>
-<p>Product</p>
+
 <img src="https://raw.seadn.io/files/10245ec92f9e33bdb10e3b33e57ff28c.jpg"/>
 
 Given two monomials in the language, a and b, the product of a and b is also in the language.
 
 <h3>5. Problem with Matrices</h3>
-<p>Problem with Matrices</p>
+
 <img src="https://raw.seadn.io/files/8c1967ffe7f5daf06d4350a3d3cf8561.jpg"/>
 
 <pre>
@@ -123,9 +123,9 @@ axa * bxb = nxn such that a != b and a,b < n
 <pre>
 A monomial with more than one variable can be treated the same way as handling single variables at different degrees.
 
-Decider(c,d,xyz) = c(xyz)^d = Decider(c,d,x)*Decider(c,d,y)*Decider(c,d,z) where c is some constant
+Decider(c,xyz,d) = c(xyz)^d = Decider(c,x,d)*Decider(c,y,d)*Decider(c,z,d) where c is some constant
 
-Decider(c,d1,x)*Decider(c,d2,y)*Decider(c,d3,z) = cx^d1*y^d2*z^d3 where c is some constant
+Decider(c,x,d1)*Decider(c,y,d2)*Decider(c,z,d3) = cx^d1*y^d2*z^d3 where c is some constant
 
 Given f(x,y)=3xy^2
 set x = 2, y = 3
@@ -134,26 +134,93 @@ f(2,3) = 27
 </pre>
 
 <h3>7. Generalized Monomial Deciders</h3>
-<p>Generalized Monomial Deciders</p>
+
 <img src="https://raw.seadn.io/files/ff4203f024a9576acb591e9c2c5036fc.jpg"/>
 
 <p>A monomial decider can be represented in a more general graphic</p>
 
+<pre>
+6x^6 <=> Decider(6,x,6) <=> 6*(xstart,x2,x3,x4,x5,xfinish)
+
+x^6<=> Decider(1,x,6) <=> 1*(xstart,x2,x3,x4,x5,xfinish)
+
+In both these examples, xstart is x1 and xfinish is x6.
+</pre>
+
 <h3>8. Concentric Monomial Deciders</h3>
-<p>Concentric Monomial Deciders</p>
+
 <img src="https://raw.seadn.io/files/72ce7443198eb29d97c7ad4770f92587.jpg"/>
 
+<p>Given a polynomial, p(x), with a monomial decider represented as ax^n in p(x) and n in N and a = 1 such that p(x) = x^n, there is special property for these monomial deciders that can be illustrated below.</p>
+
+<pre>
+Decider(1,x,4) <=> x^4 <=> {xi such that i is in {start,2,3,finish} and xi contains xi-1 where i > 1}
+
+Decider(1,x,2) <=> x^2 <=> {xi such that i is in {start,finish} and xi contains xi-1 where i > 1}
+
+In both these examples, xi is a state in the monomial decider.
+</pre>
+
+<p>Each state in a one constant monomial decider have a property of being concentric. This means that a state can be defined as, x2 <=> (x1,x0) so going from x1 to x0 then going to the next state x3 or looping back to x1.</p>
+
 <h3>9. Constants</h3>
-<p>Constants</p>
+
 <img src="https://raw.seadn.io/files/1428c340ce1dbbb662d6ff2f8f36ce9d.jpg"/>
 
+<p>Given a constant, c, of p or better described in the example: f(x) = 5. Constants are seen as linear directed acyclic graphs.</p>
+
+<pre>
+f(x) = 5
+
+Decider(5,x,0) <=> 5 <=> {start,2,3,4,finish}
+</pre>
+
+There is no state in the decider where it loops back to the start. In other words, there is no x that represents a monomial in a constant.
+
 <h3>10. Division</h3>
-<p>Division</p>
+
 <img src="https://raw.seadn.io/files/94ae2bf0b54d8e05cee2ef5a7b7b4fc1.jpg"/>
 
+<p>Division of monomial deciders</p>
+
+<pre>
+x^5 / x = x^4 <=> Decider(1,x,5)/Decider(1,x,1) ~ Decider(1,x,4)
+
+x^5 / x^2 = x^3 <=> Decider(1,x,5)/Decider(1,x,2) ~ Decider(1,x,3)
+
+x^5 / x^3 = x^2 <=> Decider(1,x,5)/Decider(1,x,3) ~ Decider(1,x,2)
+
+x^5 / x^4 = x^1 <=> Decider(1,x,5)/Decider(1,x,4) ~ Decider(1,x,1)
+
+x^5 / x^5 = 1 <=> Decider(1,x,5)/Decider(1,x,5) ~ Decider(1,x,0)
+</pre>
+
+~ here is represented as a special kind of equivalence that we will get to later.
+
+<pre>
+Decider(1,x,5)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and j is 1}
+
+Decider(1,x,5)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 3 and j is 2}
+
+Decider(1,x,5)/Decider(1,x,3) <=> {sequence of permutations of {xi,xj} such that the count of i is 2 and j is 3}
+
+Decider(1,x,5)/Decider(1,x,4) <=> {sequence of permutations of {xi,xj} such that the count of i is 1 and j is 4}
+
+Decider(1,x,5)/Decider(1,x,5) <=> {sequence of permutations of {xi,xj} such that the count of i is 0 and j is 5}
+
+Here, xi != xj, meaning xi is of a different representation than xj
+</pre>
+
 <h3>11. Multiple Divisions</h3>
-<p>Multiple Divisions</p>
+
 <img src="https://raw.seadn.io/files/2df43686cd7fd850cd453038e80b4683.jpg"/>
+
+<p>Given multiple operations of division, this forms an interesting space. x^5/x^2/x = (x^5/x)/x^2</p>
+
+<pre>
+Decider(1,x,5)/Decider(1,x,2)/Decider(1,x,1) ~ Decider(1,x,5)/Decider(1,x,1)/Decider(1,x,2)
+iff ignoring order of operations
+</pre>
 
 <h3>12. Equivalence</h3>
 <p>Equivalence</p>
