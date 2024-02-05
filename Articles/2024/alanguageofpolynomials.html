@@ -261,7 +261,7 @@ Is shown that by the permutation of the order of operations that Decider(1,x,6)/
 
 <b>Theorem of Reversing</b>
 <pre>
-Given two deciders x,y in Deciders of m(x), x == y iff sequence of all the states are equivalent, representation-wise, from start to finish
+Given two deciders x,y in a decider of m(x), x != y iff sequence of all the states are not equivalent, representation-wise, from start to finish or it doesn't represent the same order of operations of the deciders being represented
 </pre>
 
 <h3>14. Corollary of Reversing</h3>
@@ -272,11 +272,12 @@ Given two deciders x,y in Deciders of m(x), x == y iff sequence of all the state
 <p>Given a starting point, the paths a monomial decider takes to decide if y is in f(x) is inherently unique to each representation. Start at the circle, S, and end at the circle, F. If the circle is white, it is 0. If it is blue, it is 1. As an example let's traverse some of the representations of x^4.</p>
 <pre>
 
+<b>Corollary</b>
 <pre>
-Given a decider, d, in Decider of m(x) then d has some path, p, such that Path(d) = (s1,s2,...,si,...,sn) where i is count of the states in the decider of m(x).
+Given a decider, d, in Decider of m(x) then there is path, p, that exists for d such that p = Path(d) = (s1,s2,...,si,...,sn) where i is count of the states in the decider of m(x).
 
 Example:
-Choose some x such that it is in Path(Decider(1,x,6)/Decider(1,x,2)) where x = 001111
+Choose some x such that it is in Path(Decider(1,x,6)/Decider(1,x,2)) where p = 001111
 </pre>
 
 <h3>15. Godel's Theorem</h3>
