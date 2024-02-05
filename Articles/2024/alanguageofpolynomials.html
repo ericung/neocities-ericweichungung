@@ -284,7 +284,7 @@ Choose some x such that it is in Path(Decider(1,x,6)/Decider(1,x,2)) where p = 0
 
 <img src="https://raw.seadn.io/files/08652345fb10531f24b0b4264b688f62.jpg"/>
 
-<b>We see that there exists two statements from these theorems
+<b>We see that there exists two statements from these theorems</b>
 <pre>
 1. x = x from a theorem of equivalence
 2. x != x from a theorem of reversal
@@ -302,8 +302,22 @@ The different representations of a monomial through the language of monomial dec
 </p>
 
 <h3>16. Constructing The One Way Function</h3>
-<p>Constructing The One Way Function</p>
+
 <img src="https://raw.seadn.io/files/dd4f9b0b17548aa033c3c5c429ba993f.jpg"/>
+
+<p>A probability exists to find a certain monomial decider in the set of it's variations. A/B = Probability where A is the monomial decider we want and B is the number of all the variatiinons.</p>
+
+Example:
+<pre>
+d1,d2,...,d6 in deciders(1,x,6),D, such that di are all distinct
+Choose one of the deciders in D through probability
+Probability of choosing d in D is 1/6 so 0.16666667
+</pre>
+
+<p>We'll call this picking a function and every time we call this function, the probability is mulltiplied such that it is n^-k. As an example, if we call the picking function twice using the example above, we have (1/6)*(1/6) = (1/36) = 6^-2.</p>
+
+<p>This is formally known as the one way function.</p>
+
 
 <h3>17. Infiniteness</h3>
 <p>Infiniteness</p>
