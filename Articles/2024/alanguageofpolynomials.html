@@ -223,12 +223,41 @@ iff ignoring order of operations
 </pre>
 
 <h3>12. Equivalence</h3>
-<p>Equivalence</p>
+
 <img src="https://raw.seadn.io/files/461399d26480185147f88d7356802314.jpg"/>
 
+<pre>
+Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) ~ Decider(1,x,6)/Decider(1,x,2)
+iff the order of operations is next to each other
+</pre>
+
+<p>
+Determining if y is in f(x) is easy if we are given any monomial decider in the set of the language of polynomials and their representations has the possibility to give different representations if we consider them as representations of the function f(x).
+</p>
+
+<pre>
+Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj,xk} such that the count of i is 4 and j is 1 and k 1}
+
+Decider(1,x,6)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}
+</pre>
+
+<b>Theorem of Equivalence</b>
+
+<pre>
+y is in Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) == y is in Decider(1,x,6)/Decider(1,x,2)
+</pre>
+
 <h3>13. Reversing</h3>
-<p>Reversing</p>
+
 <img src="https://raw.seadn.io/files/32081555fdc28346354d30e2af60e4de.jpg"/>
+
+<pre>
+Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj,xk} such that the count of i is 4 and j is 1 and k 1}
+
+Decider(1,x,6)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}
+
+Is shown that by the permutation of the order of operations that Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) is not the same set as Decider(1,x,6)/Decider(1,x,2)
+</pre>
 
 <h3>14. Corollary of Reversing</h3>
 <p>Corollary of Reversing</p>
