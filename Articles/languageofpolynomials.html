@@ -22,13 +22,15 @@
                         <div>
                                 <h1>A Language of Polynomials</h1>
                                 
-                                <b>Eric Ung</b>
+				<h3><b>By Eric Ung</b></h3>
+
+				<h2>1. The One Way Function</h2>
 
     <p>
 Each slide can be formalized even further as their own research paper but presenting in this manner allows my ideas to give intuitive bearing so that it gives people from various backgrounds to come up with their own theories, ideas, and applications. On the other hand, this is also a formalized proof in my style of construction. Source to github is <a href="https://github.com/ericung/languageofpolynomials">here</a>.
     </p>
 
-<h3>1. Foundations</h3>
+<h3>1.1 Foundations</h3>
 
 <img src="https://raw.seadn.io/files/9f75ebe154270e7e46563d2c73d175ea.jpg"/>
 
@@ -54,7 +56,7 @@ Decider for c is Decider(1,2,1) = 5(2)^0 == 5
 
 </pre>
 
-<h3>2. Monomial of One Degree</h3>
+<h3>1.2 Monomial of One Degree</h3>
 
 <img src="https://raw.seadn.io/files/4cb6308ffe2e412653c4e97ef8d9f444.jpg"/>
 
@@ -76,7 +78,7 @@ Decider(constant,degree,x) contains the sequence set
 {start,...,finish}
 </pre>
 
-<h3>3. Addition</h3>
+<h3>1.3 Addition</h3>
 
 <img src="https://raw.seadn.io/files/d96f3bac7ac6f73948312b45b9e84c84.jpg"/>
 <pre>
@@ -101,7 +103,7 @@ where x == y
 Decider(cx,x,dx) + Decider(cy,x,dy) = Decider(cx+cy,x,dx) = Deciders(cx+cy,x,dy) iff dx == dy
 </pre>
 
-<h3>4. Product</h3>
+<h3>1.4 Product</h3>
 
 <img src="https://raw.seadn.io/files/10245ec92f9e33bdb10e3b33e57ff28c.jpg"/>
 
@@ -117,7 +119,7 @@ Given a polynomial p of x, show that the monomial deciders represented in the la
 axa * bxb = nxn such that a != b and a,b < n
 </pre>
 
-<h3>6. Multivariable Polynomials</h3>
+<h3>1.6 Multivariable Polynomials</h3>
 <p>Multivariable Polynomials</p>
 <img src="https://raw.seadn.io/files/5334b7a5857311d96aa143d6f183ed1d.jpg"/>
 
@@ -134,7 +136,7 @@ f(2,3) = 3(2)(3)^2
 f(2,3) = 27
 </pre>
 
-<h3>7. Generalized Monomial Deciders</h3>
+<h3>1.7 Generalized Monomial Deciders</h3>
 
 <img src="https://raw.seadn.io/files/ff4203f024a9576acb591e9c2c5036fc.jpg"/>
 
@@ -148,7 +150,7 @@ x^6<=> Decider(1,x,6) <=> 1*(xstart,x2,x3,x4,x5,xfinish)
 In both these examples, xstart is x1 and xfinish is x6.
 </pre>
 
-<h3>8. Concentric Monomial Deciders</h3>
+<h3>1.8 Concentric Monomial Deciders</h3>
 
 <img src="https://raw.seadn.io/files/72ce7443198eb29d97c7ad4770f92587.jpg"/>
 
@@ -164,7 +166,7 @@ In both these examples, xi is a state in the monomial decider.
 
 <p>Each state in a one constant monomial decider have a property of being concentric. This means that a state can be defined as, x2 <=> (x1,x0) so going from x1 to x0 then going to the next state x3 or looping back to x1.</p>
 
-<h3>9. Constants</h3>
+<h3>1.9 Constants</h3>
 
 <img src="https://raw.seadn.io/files/1428c340ce1dbbb662d6ff2f8f36ce9d.jpg"/>
 
@@ -178,7 +180,7 @@ Decider(5,x,0) <=> 5 <=> {start,2,3,4,finish}
 
 There is no state in the decider where it loops back to the start. In other words, there is no x that represents a monomial in a constant.
 
-<h3>10. Division</h3>
+<h3>1.10 Division</h3>
 
 <img src="https://raw.seadn.io/files/94ae2bf0b54d8e05cee2ef5a7b7b4fc1.jpg"/>
 
@@ -212,7 +214,7 @@ Decider(1,x,5)/Decider(1,x,5) <=> {sequence of permutations of {xi,xj} such that
 Here, xi != xj, meaning xi is of a different representation than xj
 </pre>
 
-<h3>11. Multiple Divisions</h3>
+<h3>1.11 Multiple Divisions</h3>
 
 <img src="https://raw.seadn.io/files/2df43686cd7fd850cd453038e80b4683.jpg"/>
 
@@ -223,7 +225,7 @@ Decider(1,x,5)/Decider(1,x,2)/Decider(1,x,1) ~ Decider(1,x,5)/Decider(1,x,1)/Dec
 iff ignoring order of operations
 </pre>
 
-<h3>12. Equivalence</h3>
+<h3>1.12 Equivalence</h3>
 
 <img src="https://raw.seadn.io/files/461399d26480185147f88d7356802314.jpg"/>
 
@@ -249,7 +251,7 @@ Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) == Decider(1,x,6)/Decider(1,x,2) su
 such that the monomial represented by both deciders exists where f(x) == y
 </pre>
 
-<h3>13. Reversing</h3>
+<h3>1.13 Reversing</h3>
 
 <img src="https://raw.seadn.io/files/32081555fdc28346354d30e2af60e4de.jpg"/>
 
@@ -266,7 +268,7 @@ Is shown that by the permutation of the order of operations that Decider(1,x,6)/
 Given two deciders x,y in a decider of m(x), x != y iff sequence of all the states are not equivalent, representation-wise, from start to finish or it doesn't represent the same order of operations of the deciders being represented
 </pre>
 
-<h3>14. Corollary of Reversing</h3>
+<h3>1.14 Corollary of Reversing</h3>
 
 <img src="https://raw.seadn.io/files/96b1bd9c39e0738bc2614994ada5bab5.jpg"/>
 
@@ -281,7 +283,7 @@ Example:
 Choose some x such that it is in Path(Decider(1,x,6)/Decider(1,x,2)) where p = 001111
 </pre>
 
-<h3>15. Godel's Theorem</h3>
+<h3>1.15 Godel's Theorem</h3>
 
 <img src="https://raw.seadn.io/files/08652345fb10531f24b0b4264b688f62.jpg"/>
 
@@ -302,7 +304,7 @@ Given some d1,d2,d3,...,infinity in deciders of m(x)
 The different representations of a monomial through the language of monomial deciders will give us undecidability. This means we can come up with many formal definitions of the mnomial decider and it will not be able to solve the problem of finding a specific representation of a monomial decider without having to guess or apply some sort of probability to it. Relating to the real line, given a real line (a,b) a < b, there is infinite choices between a and b because we canjust make the number smaller. As long as b - a > 0, there requires some sort of probability of choosing some specific number that is between a and b.
 </p>
 
-<h3>16. Constructing The One Way Function</h3>
+<h3>1.16 Constructing The One Way Function</h3>
 
 <img src="https://raw.seadn.io/files/dd4f9b0b17548aa033c3c5c429ba993f.jpg"/>
 
@@ -319,7 +321,7 @@ Probability of choosing d in D is 1/6 so 0.16666667
 
 <p>This is formally known as the one way function.</p>
 
-<h3>17. Infiniteness</h3>
+<h3>1.17 Infiniteness</h3>
 
 <img src="https://raw.seadn.io/files/9ece5cd5d0e581faf1dcde202a36e726.jpg"/>
 
@@ -349,23 +351,23 @@ Decider(c,x,d) contains Decider(c,x,d-1)
 d - 1 is then infinity too.
 </pre>
 
-<h2>Applications of Monomial Deciders</h2>
+<h2>2. Applications of Monomial Deciders</h2>
 
 This is part 2 of the article, "A Language of Polynomials", with concrete examples of how to use it including constructing the one way function using the picking function. A link to github is <a href="https://github.com/ericung/ApplicationsForMonomialDeciders">here</a>.
 
-<h3>18. Starting With A Theorem Of Infiniteness</h3>
+<h3>2.18 Starting With A Theorem Of Infiniteness</h3>
 
 <img src="https://raw.seadn.io/files/355f7480e3c00dca91baa5e6396a3c1e.jpg"/>
 
-<h3>19. Mapping Out Worlds</h3>
+<h3>2.19 Mapping Out Worlds</h3>
 
 <img src="https://raw.seadn.io/files/d7aa0fb86ec30bdf2e6cd21f9ff99684.jpg"/>
 
-<h3>20. Euler's Constant</h3>
+<h3>2.20 Euler's Constant</h3>
 
 <img src="https://raw.seadn.io/files/89d733a5810431c70a9ca749ac1ad5ef.jpg"/>
 
-<h3>21. Sketching Into Code</h3>
+<h3>2.21 Sketching Into Code</h3>
 
 <img src="https://raw.seadn.io/files/a41d6f9e8ada79ef18b0ead8acc9a4e7.jpg"/>
 
@@ -399,7 +401,7 @@ bool generalizedMD(int y)
 }
 </pre>
 
-<h3>22. Gather Some Data</h3>
+<h3>2.22 Gather Some Data</h3>
 
 <img src="https://raw.seadn.io/files/eb31664e64ddaf6b9f375981c29343c6.jpg"/>
 
@@ -441,7 +443,7 @@ int[] Generator(int max)
 </pre>
 Logs for the curious.
 
-<h3>23. Representing Monomial Deciders As Code</h3>
+<h3>2.23 Representing Monomial Deciders As Code</h3>
 
 <img src="https://raw.seadn.io/files/a958de4ea888bf0334fb40748f204510.jpg"/>
 
@@ -500,15 +502,15 @@ bool MonomialDecider2xx(int y)
 
 Logs for the curious.
 
-<h3>24. Negative Numbers</h3>
+<h3>2.24 Negative Numbers</h3>
 
 <img src="https://raw.seadn.io/files/568874f7852af4b7ee4cc2d3fd58f309.jpg"/>
 
-<h3>25. Pi</h3>
+<h3>2.25 Pi</h3>
 
 <img src="https://raw.seadn.io/files/ed6b0ade60a1c9a561ff82b6923f5f2d.jpg"/>
 
-<h3>26. Fibonacci</h3>
+<h3>2.26 Fibonacci</h3>
 
 <img src="https://raw.seadn.io/files/6800e6a3ac49fd70869c386db6c1cf66.jpg"/>
 
@@ -558,11 +560,11 @@ f(	14	) =		377		Ex = 0		eY = 1
 </pre>
 Logs for the curious.
 
-<h3>27. Analysis Of Parity In Fibonacci</h3>
+<h3>2.27 Analysis Of Parity In Fibonacci</h3>
 
 <img src="https://raw.seadn.io/files/c34040025bc28cb993857bff5edfbbe9.jpg"/>
 
-<h3>28. Redrawing the Fibonacci Sequence</h3>
+<h3>2.28 Redrawing the Fibonacci Sequence</h3>
 
 <img src="https://raw.seadn.io/files/bf5eb9dce0f79879f1d58ad07d41218f.jpg"/>
 
@@ -615,7 +617,7 @@ int fibonacciGenerator(int n)
 
 Logs for the curious.
 
-<h3>29. The Fibonacci Decider</h3>
+<h3>2.29 The Fibonacci Decider</h3>
 
 <img src="https://raw.seadn.io/files/f3bc75ac1efffa0f55c1a9b6310378dc.jpg"/>
 
@@ -634,94 +636,94 @@ x1 = 144, y1 = 89, z1 = 55, x2 = 34, y2 = 21, z2 = 13
 55 = 144 - 89 + 13 - 34 + 21 = 55
 </pre>
 
-<h3>30. The Fibonacci Picking Function</h3>
+<h3>2.30 The Fibonacci Picking Function</h3>
 
 <img src="https://raw.seadn.io/files/fc6c93a7b2a2b58d89b98deb05cdf3ff.jpg"/>
 
-<h2>Inferrable Languages</h2>
+<h2>3. Inferrable Languages</h2>
 The concept of statistics and blackboxes has been drawn out extensively in theories and applications for decades but what of languages and knowing what word can be used to generate the next series of words? Everyone guesses what words can come out of someone talking given enough experience. In this article, the idea of inferrable languages is presented which are languages that allow the next series of words in the sequence to be inferred given enough samples in the sequence.
 
 The article, Inferring Lindenmayer Systems, is about deterministically producing the next series of words given a complete sequence of words.
 
 Let's apply this idea with the monomial decider and picking function from the following article, Applications for Monomial Deciders. A link to github is <a href="https://github.com/ericung/InferrableLanguages">here</a>.
 
-<h3>31. Applying The Fibonnaci Decider</h3>
+<h3>3.31 Applying The Fibonnaci Decider</h3>
 
 <img src="https://raw.seadn.io/files/4d78375a8d4aa1b196944f499c64c1dc.jpg"/>
 
-<h3>32. Fibonacci DOL Decider Left Hand Side</h3>
+<h3>3.32 Fibonacci DOL Decider Left Hand Side</h3>
 
 <img src="https://raw.seadn.io/files/9f29ed9da88911532a7a6197fb72b172.jpg"/>
 
-<h3>33. Fibonacci DOL Decider Right Hand Side</h3>
+<h3>3.33 Fibonacci DOL Decider Right Hand Side</h3>
 
 <img src="https://raw.seadn.io/files/c3be2170f49babc5fdf33d809878994a.jpg"/>
 
-<h3>34. The Law of Commutativity and Noncommutativity</h3>
+<h3>3.34. The Law of Commutativity and Noncommutativity</h3>
 
 <img src="https://raw.seadn.io/files/67632cc44bc971351c6e3102eab2d6eb.jpg"/>
 
-<h3>35. Definition Of Support</h3>
+<h3>3.35 Definition Of Support</h3>
 
 <img src="https://raw.seadn.io/files/b69e5a10825c837924f814b3519fa5eb.jpg"/>
 
-<h3>36. Rationals Of Picking Function</h3>
+<h3>3.36 Rationals Of Picking Function</h3>
 
 <img src="https://raw.seadn.io/files/03ae688297001f27e99f59b741ca12cd.jpg"/>
 
-<h3>37. Support Of Picking Function</h3>
+<h3>3.37 Support Of Picking Function</h3>
 
 <img src="https://raw.seadn.io/files/78a36c11bb6fc6a43bf97f220e756c1d.jpg"/>
 
-<h3>38. Law Of Strings</h3>
+<h3>3.38 Law Of Strings</h3>
 
 <img src="https://raw.seadn.io/files/017630a0bee86bd4dcaab8dcc45d59fc.jpg"/>
 
-<h3>39. Commutativity Of Addition</h3>
+<h3>3.39 Commutativity Of Addition</h3>
 
 <img src="https://raw.seadn.io/files/69759f9f4439877539da5ff830b7a2ed.jpg"/>
 
-<h3>40. Commutativity Of Multiplication</h3>
+<h3>3.40 Commutativity Of Multiplication</h3>
 
 <img src="https://raw.seadn.io/files/985f81cafb37aa12095a558138d77f8d.jpg"/>
 
-<h3>41. Additive Identity</h3>
+<h3>3.41 Additive Identity</h3>
 
 <img src="https://raw.seadn.io/files/ef54595ff298bea45c1b87822196da2e.jpg"/>
 
-<h3>42. Multiplicative Identity</h3>
+<h3>3.42 Multiplicative Identity</h3>
 
 <img src="https://raw.seadn.io/files/2b0954091350a91706c4600cc2671458.jpg"/>
 
-<h3>43. Additive Inverse</h3>
+<h3>3.43 Additive Inverse</h3>
 
 <img src="https://raw.seadn.io/files/6e35ff699cb408a7d0ee1736bc947bbd.jpg"/>
 
-<h3>44. Multiplicative Inverse</h3>
+<h3>3.44 Multiplicative Inverse</h3>
 
 <img src="https://raw.seadn.io/files/a203740ef9e3937930ddf1dd137cb82c.jpg"/>
 
-<h3>45. Generalized Operations</h3>
+<h3>3.45 Generalized Operations</h3>
 
 <img src="https://raw.seadn.io/files/3612f8d4e5c8588467c5a1cb38e8cf24.jpg"/>
 
-<h3>46. Generalized Communativity</h3>
+<h3>3.46 Generalized Communativity</h3>
 
 <img src="https://raw.seadn.io/files/fc35b1ea97496b08b33dd6b9011e54a6.jpg"/>
 
-<h3>47. Associativity Of Addition</h3>
+<h3>3.47 Associativity Of Addition</h3>
 
 <img src="https://raw.seadn.io/files/36e88869cd1ed4ef3aef40160653ccb6.jpg"/>
 
-<h3>48. Associativity Of Multiplication</h3>
+<h3>3.48 Associativity Of Multiplication</h3>
 
 <img src="https://raw.seadn.io/files/6d807a2356203ced6aa0e96b61246bb9.jpg"/>
 
-<h3>49. Distibutivity</h3>
+<h3>3.49 Distibutivity</h3>
 
 <img src="https://raw.seadn.io/files/34f6f1d185bca9b4c530bbd66d418d8b.jpg"/>
 
-<h3>50. Field</h3>
+<h3>3.50 Field</h3>
 
 <img src="https://raw.seadn.io/files/c8d6054eb3992b7b29f97f1ab7c23cf8.jpg"/>
 
