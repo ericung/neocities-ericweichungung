@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eric Wei-Chung Ung</title>
+    <link rel="stylesheet" href="/lib/css/main.css" />
+    <link rel="stylesheet" href="/lib/css/foundation.min.css" />
+</head>
+<body>
+    <div b-2ag8j027ey class="row">
+        <main b-2ag8j027ey role="main" class="pb-3">
+            
+        <article class="grid-container">
+            <div class="grid-x">
+                <div id="middle" class="cell small-1">
+                </div>
+                <div id="middle" class="cell large-auto">
+                    <div>
+                        <br />
+                        <br />
+                        <div>
+                                <h1>A Language of Polynomials</h1>
+                                
+                                <h3>Eric Ung, Advisor: Carl Sturtivant</h3>
+    <p>
+Each slide can be formalized even further as their own research paper but presenting in this manner allows my ideas to give intuitive bearing so that it gives people from various backgrounds to come up with their own theories, ideas, and applications. On the other hand, this is also a formalized proof in my style of construction. Source to github is <a href="https://github.com/ericung/languageofpolynomials">here</a>.
+    </p>
+
+<h3>1. Foundations</h3>
+
+<img src="https://raw.seadn.io/files/9f75ebe154270e7e46563d2c73d175ea.jpg"/>
+
+<p>There exists a language such that it decides each monomial in the polynomial. In other words, there exists a set of deciders for each monomial in the polynomial where it decides if y is in the monomial.</p>
+
+<pre>
+Given a polynomial p(x) = ax^2 + bx + c
+p(x) = 3x^2 + 4x + 5
+p(2) = 3(2)^2 + 4(2) + 5
+p(2) = 12 + 8 + 5
+
+Let the decider be defined as the following:
+Decider is a function Decider(constant, degree, x) <=> constant*x^degree == y
+such that
+x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y
+and x1 is the start
+and x<i>degree times</i> is the finish
+then loop around x1 to x<i>degree times</i> until it stops
+
+Decider for ax^2 is Decider(3,2,2) = 3(2)^2 == 12
+Decider for bx is Decider(4,2,1) = 4(2)^1 == 8
+Decider for c is Decider(1,2,1) = 5(2)^0 == 5
+
+</pre>
+
+<h3>2. Monomial of One Degree</h3>
+
+<img src="https://raw.seadn.io/files/4cb6308ffe2e412653c4e97ef8d9f444.jpg"/>
+
+<pre>
+Given the definition of a decider:
+Decider is a function Decider(constant, x, degree) <=> constant*x^degree == y
+
+A decider of at least one degree
+
+Decider(3,4,x) <=> 3x^4 == y
+Contains Decider(3,x,3) <=> 3x^3 == y
+Contains Decider(3,x,2) <=> 3x^2 == y
+Contains Decider(3,x,1) <=> 3x^1 == y
+Contains Decider(3,x,0) <=> 3x^0 == y
+
+Hence it can be generalized to:
+Decider(constant,degree,x) contains the sequence set 
+{Decider(constant,degree,x),Decider(constant,degree-1,x),...,Decider(constant,0,x)}
+{start,...,finish}
+</pre>
+
+<h3>3. Addition</h3>
+
+<img src="https://raw.seadn.io/files/d96f3bac7ac6f73948312b45b9e84c84.jpg"/>
+<pre>
+Given the first example:
+p(x) = 3x^2 + 4x + 5
+p(2) = 3(2)^2 + 4(2) + 5
+p(2) = 12 + 8 + 5
+
+m2 = Decider(3,x,2) = 3x^2
+m1 = Decider(4,x,1) = 4x
+m0 = Decider(5,x,0) = 5
+
+Generalized to mx where x is the degree
+
+Given polynomial functions, p1 and p2, they are commutative
+p1(x) = ma + ... + m0
+p2(x) = nb + ... + n0
+
+p1(x) + p2(x) = ma + m[x+1] + nb + n[y+1] + ... + (mx + ny) + ... + (m0 + n0)
+where x == y
+
+Decider(cx,x,dx) + Decider(cy,x,dy) = Decider(cx+cy,x,dx) = Deciders(cx+cy,x,dy) iff dx == dy
+</pre>
+
+<h3>4. Product</h3>
+
+<img src="https://raw.seadn.io/files/10245ec92f9e33bdb10e3b33e57ff28c.jpg"/>
+
+Given two monomials in the language, a and b, the product of a and b is also in the language.
+
+<h3>5. Problem with Matrices</h3>
+
+<img src="https://raw.seadn.io/files/8c1967ffe7f5daf06d4350a3d3cf8561.jpg"/>
+
+<pre>
+Given a polynomial p of x, show that the monomial deciders represented in the language can't be contained in a finite matrix after a set number, n, such that x^n.
+
+axa * bxb = nxn such that a != b and a,b < n
+</pre>
+
+<h3>6. Multivariable Polynomials</h3>
+<p>Multivariable Polynomials</p>
+<img src="https://raw.seadn.io/files/5334b7a5857311d96aa143d6f183ed1d.jpg"/>
+
+<pre>
+A monomial with more than one variable can be treated the same way as handling single variables at different degrees.
+
+Decider(c,xyz,d) = c(xyz)^d = Decider(c,x,d)*Decider(c,y,d)*Decider(c,z,d) where c is some constant
+
+Decider(c,x,d1)*Decider(c,y,d2)*Decider(c,z,d3) = cx^d1*y^d2*z^d3 where c is some constant
+
+Given f(x,y)=3xy^2
+set x = 2, y = 3
+f(2,3) = 3(2)(3)^2
+f(2,3) = 27
+</pre>
+
+<h3>7. Generalized Monomial Deciders</h3>
+
+<img src="https://raw.seadn.io/files/ff4203f024a9576acb591e9c2c5036fc.jpg"/>
+
+<p>A monomial decider can be represented in a more general graphic</p>
+
+<pre>
+6x^6 <=> Decider(6,x,6) <=> 6*(xstart,x2,x3,x4,x5,xfinish)
+
+x^6<=> Decider(1,x,6) <=> 1*(xstart,x2,x3,x4,x5,xfinish)
+
+In both these examples, xstart is x1 and xfinish is x6.
+</pre>
+
+<h3>8. Concentric Monomial Deciders</h3>
+
+<img src="https://raw.seadn.io/files/72ce7443198eb29d97c7ad4770f92587.jpg"/>
+
+<p>Given a polynomial, p(x), with a monomial decider represented as ax^n in p(x) and n in N and a = 1 such that p(x) = x^n, there is special property for these monomial deciders that can be illustrated below.</p>
+
+<pre>
+Decider(1,x,4) <=> x^4 <=> {xi such that i is in {start,2,3,finish} and xi contains xi-1 where i > 1}
+
+Decider(1,x,2) <=> x^2 <=> {xi such that i is in {start,finish} and xi contains xi-1 where i > 1}
+
+In both these examples, xi is a state in the monomial decider.
+</pre>
+
+<p>Each state in a one constant monomial decider have a property of being concentric. This means that a state can be defined as, x2 <=> (x1,x0) so going from x1 to x0 then going to the next state x3 or looping back to x1.</p>
+
+<h3>9. Constants</h3>
+
+<img src="https://raw.seadn.io/files/1428c340ce1dbbb662d6ff2f8f36ce9d.jpg"/>
+
+<p>Given a constant, c, of p or better described in the example: f(x) = 5. Constants are seen as linear directed acyclic graphs.</p>
+
+<pre>
+f(x) = 5
+
+Decider(5,x,0) <=> 5 <=> {start,2,3,4,finish}
+</pre>
+
+There is no state in the decider where it loops back to the start. In other words, there is no x that represents a monomial in a constant.
+
+<h3>10. Division</h3>
+
+<img src="https://raw.seadn.io/files/94ae2bf0b54d8e05cee2ef5a7b7b4fc1.jpg"/>
+
+<p>Division of monomial deciders</p>
+
+<pre>
+x^5 / x = x^4 <=> Decider(1,x,5)/Decider(1,x,1) ~ Decider(1,x,4)
+
+x^5 / x^2 = x^3 <=> Decider(1,x,5)/Decider(1,x,2) ~ Decider(1,x,3)
+
+x^5 / x^3 = x^2 <=> Decider(1,x,5)/Decider(1,x,3) ~ Decider(1,x,2)
+
+x^5 / x^4 = x^1 <=> Decider(1,x,5)/Decider(1,x,4) ~ Decider(1,x,1)
+
+x^5 / x^5 = 1 <=> Decider(1,x,5)/Decider(1,x,5) ~ Decider(1,x,0)
+</pre>
+
+~ here is represented as a special kind of equivalence that we will get to later.
+
+<pre>
+Decider(1,x,5)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and j is 1}
+
+Decider(1,x,5)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 3 and j is 2}
+
+Decider(1,x,5)/Decider(1,x,3) <=> {sequence of permutations of {xi,xj} such that the count of i is 2 and j is 3}
+
+Decider(1,x,5)/Decider(1,x,4) <=> {sequence of permutations of {xi,xj} such that the count of i is 1 and j is 4}
+
+Decider(1,x,5)/Decider(1,x,5) <=> {sequence of permutations of {xi,xj} such that the count of i is 0 and j is 5}
+
+Here, xi != xj, meaning xi is of a different representation than xj
+</pre>
+
+<h3>11. Multiple Divisions</h3>
+
+<img src="https://raw.seadn.io/files/2df43686cd7fd850cd453038e80b4683.jpg"/>
+
+<p>Given multiple operations of division, this forms an interesting space. x^5/x^2/x = (x^5/x)/x^2</p>
+
+<pre>
+Decider(1,x,5)/Decider(1,x,2)/Decider(1,x,1) ~ Decider(1,x,5)/Decider(1,x,1)/Decider(1,x,2)
+iff ignoring order of operations
+</pre>
+
+<h3>12. Equivalence</h3>
+
+<img src="https://raw.seadn.io/files/461399d26480185147f88d7356802314.jpg"/>
+
+<pre>
+Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) ~ Decider(1,x,6)/Decider(1,x,2)
+iff the order of operations is next to each other
+</pre>
+
+<p>
+Determining if y is in f(x) is easy if we are given any monomial decider in the set of the language of polynomials and their representations has the possibility to give different representations if we consider them as representations of the function f(x).
+</p>
+
+<pre>
+Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj,xk} such that the count of i is 4 and j is 1 and k 1}
+
+Decider(1,x,6)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}
+</pre>
+
+<b>Theorem of Equivalence</b>
+
+<pre>
+Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) == Decider(1,x,6)/Decider(1,x,2) such that there is some x 
+such that the monomial represented by both deciders exists where f(x) == y
+</pre>
+
+<h3>13. Reversing</h3>
+
+<img src="https://raw.seadn.io/files/32081555fdc28346354d30e2af60e4de.jpg"/>
+
+<pre>
+Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj,xk} such that the count of i is 4 and j is 1 and k 1}
+
+Decider(1,x,6)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}
+</pre>
+
+Is shown that by the permutation of the order of operations that Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) is not the same set as Decider(1,x,6)/Decider(1,x,2)
+
+<b>Theorem of Reversing</b>
+<pre>
+Given two deciders x,y in a decider of m(x), x != y iff sequence of all the states are not equivalent, representation-wise, from start to finish or it doesn't represent the same order of operations of the deciders being represented
+</pre>
+
+<h3>14. Corollary of Reversing</h3>
+
+<img src="https://raw.seadn.io/files/96b1bd9c39e0738bc2614994ada5bab5.jpg"/>
+
+<b>A little more on the theorem of reversing</b>
+<p>Given a starting point, the paths a monomial decider takes to decide if y is in f(x) is inherently unique to each representation. Start at the circle, S, and end at the circle, F. If the circle is white, it is 0. If it is blue, it is 1. As an example let's traverse some of the representations of x^4.</p>
+
+<b>Corollary</b>
+<pre>
+Given a decider, d, in Decider of m(x) then there is path, p, that exists for d such that p = Path(d) = (s1,s2,...,si,...,sn) where i is count of the states in the decider of m(x).
+
+Example:
+Choose some x such that it is in Path(Decider(1,x,6)/Decider(1,x,2)) where p = 001111
+</pre>
+
+<h3>15. Godel's Theorem</h3>
+
+<img src="https://raw.seadn.io/files/08652345fb10531f24b0b4264b688f62.jpg"/>
+
+<b>We see that there exists two statements from these theorems</b>
+<pre>
+1. x = x from a theorem of equivalence
+2. x != x from a theorem of reversal
+</pre>
+
+Example:
+<pre>
+Given some d1,d2,d3,...,infinity in deciders of m(x)
+1. d1 = d2 = d3 = ... = infinity
+2. d1 != d2 != d3 = ... != infinity
+</pre>
+
+<p>
+The different representations of a monomial through the language of monomial deciders will give us undecidability. This means we can come up with many formal definitions of the mnomial decider and it will not be able to solve the problem of finding a specific representation of a monomial decider without having to guess or apply some sort of probability to it. Relating to the real line, given a real line (a,b) a < b, there is infinite choices between a and b because we canjust make the number smaller. As long as b - a > 0, there requires some sort of probability of choosing some specific number that is between a and b.
+</p>
+
+<h3>16. Constructing The One Way Function</h3>
+
+<img src="https://raw.seadn.io/files/dd4f9b0b17548aa033c3c5c429ba993f.jpg"/>
+
+<p>A probability exists to find a certain monomial decider in the set of it's variations. A/B = Probability where A is the monomial decider we want and B is the number of all the variations.</p>
+
+Example:
+<pre>
+d1,d2,...,d6 in deciders(1,x,6),D, such that di are all distinct
+Choose one of the deciders in D through probability
+Probability of choosing d in D is 1/6 so 0.16666667
+</pre>
+
+<p>We'll call this picking a function and every time we call this function, the probability is mulltiplied such that it is n^-k. As an example, if we call the picking function twice using the example above, we have (1/6)*(1/6) = (1/36) = 6^-2.</p>
+
+<p>This is formally known as the one way function.</p>
+
+<h3>17. Infiniteness</h3>
+
+<img src="https://raw.seadn.io/files/9ece5cd5d0e581faf1dcde202a36e726.jpg"/>
+
+<p>
+Given that, if we can show for any language it abides a theorem of equivalence and a theorem of reversal and they both have infinite representations, we know that we need some sort of probability to choose a specific representation of a monomial decider. We'll call this a theorem of infiniteness because if we can show that some language is infinite, it will require some ort of guess to pick something unique out of all the things it represents, generates, or describes. In other words, you can't map infinity to infinity directly for you must map infinity to something discrete and something discrete to infinity.</p>
+
+<b>Theorem</b>
+<pre>
+A mapping must be from infinity to discrete representation to discrete representation to infinity.
+
+Given any representation of infinity,
+Suppose a mapping infinity to infinity exists.
+Then this map is equivalent to infinity because 
+infinity contains this map.
+</pre>
+
+<p>
+Here, infinity is represented as *.
+* contains * -> *.
+</p>
+
+<pre>
+Intuition
+
+Given Decider(c,x,d) and d is infinity,
+Decider(c,x,d) contains Decider(c,x,d-1)
+d - 1 is then infinity too.
+</pre>
+
+<h2>Applications of Monomial Deciders</h2>
+
+This is part 2 of the article, "A Language of Polynomials", with concrete examples of how to use it including constructing the one way function using the picking function.
+
+<h3>18. Starting With A Theorem Of Infiniteness</h3>
+
+<img src="https://raw.seadn.io/files/355f7480e3c00dca91baa5e6396a3c1e.jpg"/>
+
+<h3>19. Mapping Out Worlds</h3>
+
+<img src="https://raw.seadn.io/files/d7aa0fb86ec30bdf2e6cd21f9ff99684.jpg"/>
+
+<h3>20. Euler's Constant</h3>
+
+<img src="https://raw.seadn.io/files/89d733a5810431c70a9ca749ac1ad5ef.jpg"/>
+
+<h3>21. Sketching Into Code</h3>
+
+<img src="https://raw.seadn.io/files/a41d6f9e8ada79ef18b0ead8acc9a4e7.jpg"/>
+
+<pre>
+bool generalizedMD(int y)
+{
+    if (y == 0)
+    {
+        return true;
+    }
+    var s = y;
+    while (s >= 0)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (s == 0 && (j == 0 || j == 2) && i == 0)
+                {
+                    return true;
+                }
+                else if (s < 0)
+                {
+                    return false;
+                }
+                s -= 1;
+            }
+        }
+    }
+    return true;
+}
+</pre>
+
+<h3>22. Gather Some Data</h3>
+
+<img src="https://raw.seadn.io/files/eb31664e64ddaf6b9f375981c29343c6.jpg"/>
+
+<pre>
+// Generates negatives from a general monomial decider represented as an algorithm so
+// that we can collect data about the negatives
+int[] Generator(int max)
+{
+    int[] result = new int[max + 1];
+    int x = 0;
+    int negatives = 0;
+    int i = 0;
+    while (x < max + 1)
+    {
+        int num = 2 * (Convert.ToInt32(Math.Pow(x, 2)));
+        if (generalizedMD(i))
+        {
+            // A simple verifier
+            if (num == i)
+            {
+                Console.WriteLine(negatives);
+                Console.WriteLine("f(" + x + ") = " + i);
+                result[x] = i;
+
+                x++;
+                negatives = 0;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+        i++;
+    }
+
+    return result;
+}
+
+</pre>
+Logs for the curious.
+
+<h3>23. Representing Monomial Deciders As Code</h3>
+
+<img src="https://raw.seadn.io/files/a958de4ea888bf0334fb40748f204510.jpg"/>
+
+<pre>
+// After getting some log results, we can construct a decider
+bool MonomialDecider2xx(int y)
+{
+    var total = 0;
+    var hits = 0;
+    var diff = 1;
+    var isEven = 0;
+    var s = 0;
+
+    while (s <= y)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+                    if ((i == 0)&&(j == 0 || j == 1)&&(k == 0))
+                    {
+                        if (hits == total)
+                        {
+                            if (s == y)
+                            {
+                                Console.WriteLine(s + ": Hits: " + total);
+                                return true;
+                            }
+                            else if (s > y)
+                            {
+                                return false;
+                            }
+
+                            total += diff;
+                            isEven++;
+                            if (isEven % 3 == 2)
+                            {
+                                isEven = 0;
+                                diff += 2;
+                            }
+                        }
+
+                        hits++;
+                    }
+                    s++;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+</pre>
+
+Logs for the curious.
+
+<h3>24. Negative Numbers</h3>
+
+<img src="https://raw.seadn.io/files/568874f7852af4b7ee4cc2d3fd58f309.jpg"/>
+
+<h3>25. Pi</h3>
+
+<img src="https://raw.seadn.io/files/ed6b0ade60a1c9a561ff82b6923f5f2d.jpg"/>
+
+<h3>26. Fibonacci</h3>
+
+<img src="https://raw.seadn.io/files/6800e6a3ac49fd70869c386db6c1cf66.jpg"/>
+
+Let's take apart the fibonacci sequence and try to find some patterns.
+
+<pre>
+int fibonacci(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+
+    int y = 1;
+    int y1 = 1;
+    int y2 = 0;
+
+    for(int i = 1; i < n; i++)
+    {
+        y = y1 + y2;
+        y2 = y1;
+        y1 = y;
+    }
+
+    return y;
+}
+</pre>
+
+<pre>
+Heres the log for the first 14 entries.
+
+f(	0	) =		0		Ex = 0		eY = 0
+f(	1	) =		1		Ex = 1		eY = 1
+f(	2	) =		1		Ex = 0		eY = 1
+f(	3	) =		2		Ex = 1		eY = 0
+f(	4	) =		3		Ex = 0		eY = 1
+f(	5	) =		5		Ex = 1		eY = 1
+f(	6	) =		8		Ex = 0		eY = 0
+f(	7	) =		13		Ex = 1		eY = 1
+f(	8	) =		21		Ex = 0		eY = 1
+f(	9	) =		34		Ex = 1		eY = 0
+f(	10	) =		55		Ex = 0		eY = 1
+f(	11	) =		89		Ex = 1		eY = 1
+f(	12	) =		144		Ex = 0		eY = 0
+f(	13	) =		233		Ex = 1		eY = 1
+f(	14	) =		377		Ex = 0		eY = 1
+</pre>
+Logs for the curious.
+
+<h3>27. Analysis Of Parity In Fibonacci</h3>
+
+<img src="https://raw.seadn.io/files/c34040025bc28cb993857bff5edfbbe9.jpg"/>
+
+<h3>28. Redrawing the Fibonacci Sequence</h3>
+
+<img src="https://raw.seadn.io/files/bf5eb9dce0f79879f1d58ad07d41218f.jpg"/>
+
+Fibonacci generator with the set of generator functions.
+
+<pre>
+int fibonacciGenerator(int n)
+{
+    int stateX = 0;
+    int stateY = 1;
+    int stateZ = 1;
+    int cycles = 0;
+
+    while (cycles <= n)
+    {
+        cycles++;
+
+        if (cycles > n)
+        {
+            return stateX;
+        }
+
+        stateX = stateY + stateZ;
+        Console.WriteLine("stateX: " + stateX + "\tstateY: " + stateY + "\tstateZ: " + stateY);
+        
+        cycles++;
+
+        if (cycles > n)
+        {
+            return stateY;
+        }
+
+        stateY = stateX + stateZ;
+        Console.WriteLine("stateX: " + stateX + "\tstateY: " + stateY + "\tstateZ: " + stateY);
+
+        cycles++;
+
+        if (cycles > n)
+        {
+            return stateZ;
+        }
+
+        stateZ = stateX + stateY;
+        Console.WriteLine("stateX: " + stateX + "\tstateY: " + stateY + "\tstateZ: " + stateY);
+    }
+
+    return stateX;
+}
+</pre>
+
+Logs for the curious.
+
+<h3>29. The Fibonacci Decider</h3>
+
+<img src="https://raw.seadn.io/files/f3bc75ac1efffa0f55c1a9b6310378dc.jpg"/>
+
+<pre>
+Given a sequence of length six, we can decide if it forms a valid fibonacci sequence.
+The following is a log of calculations.
+
+
+x1 = 144, y1 = 89, z1 = 55, x2 = 34, y2 = 21, z2 = 13
+
+144 = 89 - 13 + 34 - 21 + 55 = 144
+89 = 13 - 34 + 21 - 55 + 144 = 89
+13 = 34 - 21 + 55 - 144 + 89 = 13
+34 = 21 - 55 + 144 - 89 + 13 = 34
+21 = 55 - 144 + 89 - 13 + 34 = 21
+55 = 144 - 89 + 13 - 34 + 21 = 55
+</pre>
+
+<h3>30. The Fibonacci Picking Function</h3>
+
+<img src="https://raw.seadn.io/files/fc6c93a7b2a2b58d89b98deb05cdf3ff.jpg"/>
+
+<h2>Inferrable Languages</h2>
+The concept of statistics and blackboxes has been drawn out extensively in theories and applications for decades but what of languages and knowing what word can be used to generate the next series of words? Everyone guesses what words can come out of someone talking given enough experience. In this article, the idea of inferrable languages is presented which are languages that allow the next series of words in the sequence to be inferred given enough samples in the sequence.
+
+The article, Inferring Lindenmayer Systems, is about deterministically producing the next series of words given a complete sequence of words.
+
+Let's apply this idea with the monomial decider and picking function from the following article, Applications for Monomial Deciders.
+
+<h3>31. Applying The Fibonnaci Decider</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/01ApplyingTheFibonacciDecider.jpg"/>
+
+<h3>32. Fibonacci DOL Decider Left Hand Side</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/02FibonacciD0LDeciderLeftHandSide.jpg"/>
+
+<h3>33. Fibonacci DOL Decider Right Hand Side</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/03FibonacciD0LDeciderRightHandSide.jpg"/>
+
+<h3>34. The Law of Commutativity and Noncommutativity</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/04TheLawOfCommutativityAndNoncommutativity.jpg"/>
+
+<h3>35. Definition Of Support</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/05DefinitionOfSupport.jpg"/>
+
+<h3>36. Rationals Of Picking Function</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/06RationalsOfPickingFunction.jpg"/>
+
+<h3>37. Support Of Picking Function</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/07SupportOfPickingFunction.jpg"/>
+
+<h3>38. Law Of Strings</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/08LawOfStrings.jpg"/>
+
+<h3>39. Commutativity Of Addition</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/09CommutativityOfAddition.jpg"/>
+
+<h3>40. Commutativity Of Multiplication</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/10CommutativityOfMultiplication.jpg"/>
+
+<h3>41. Additive Identity</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/11AdditiveIdentity.jpg"/>
+
+<h3>42. Multiplicative Identity</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/12MultiplicativeIdentity.jpg"/>
+
+<h3>43. Additive Inverse</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/13AdditiveInverse.jpg"/>
+
+<h3>44. Multiplicative Inverse</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/14MultiplicativeInverse.jpg"/>
+
+<h3>45. Generalized Operations</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/15GeneralizedOperations.jpg"/>
+
+<h3>46. Generalized Communativity</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/16GeneralizedCommutativity.jpg"/>
+
+<h3>47. Associativity Of Addition</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/17AssociativityOfAddition.jpg"/>
+
+<h3>48. Associativity Of Multiplication</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/18AssociativityOfMultiplication.jpg"/>
+
+<h3>49. Distibutivity</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/19Distibutivity.jpg"/>
+
+<h3>50. Field</h3>
+
+<img src="https://github.com/ericung/InferrableLanguages/blob/master/Resources/20Field.jpg"/>
+
+<h1>References</h1>
+<p>Berstel, J., & Reutenauer, C. (2010). Noncommutative rational series with applications. Cambridge University Press.</p>
+
+<p>Sipser, M. (2006). Theory of Computation (2nd ed., p. 431). Course Technology, Cengage Learning.</p>
+
+<p>Munkres, J. R. (2000). Topology (2nd ed., p. 537). Prentice Hall.</p>
+
+<p>Artin, M. (2011). Algebra (2nd ed., p. 543). Pearson.</p>
+
+<p>Enderton, H. B. (2001). Logic (2nd ed., p. 317). HARCOURT/ACADEMIC PRESS.</p>
+
+<p>Lay, S. R. (2004). Analysis (4th ed., p. 394). Pearson Prentice Hall.</p>
+
+<p>Cox, D. A., Little, J., & O’Shea, D. (1997). Ideals, varieties, and algorithms: An introduction to computational algebraic geometry and commutative algebra (2nd ed.). Springer.</p>
+
+<p>Golub, G. H., & Van Loan, C. F. (1996). Matrix Computations (3rd ed., p. 728). Johns Hopkins University Press.</p>
+
+<p>Hofstadter, D. R. (1999). Gödel, Escher, Bach: An eternal golden braid. Basic Books.</p>
+
+<p>Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). Introduction to Algorithms (3rd ed.). MIT Press.</p>
+
+<p>Sturtivant, C. (n.d.). CS&E Profile: Carl Sturtivant. University of Minnesota. Retrieved November 30, 2023, from https://www-users.cse.umn.edu/~carl/.</p>
+
+<p>Shilov, G. E. (2012). Linear algebra (R. A. Silverman, Trans.). Dover Publications. (Original work published 1971)</p>
+
+<p>Strang, G. (2009). Introduction to Linear Algebra (4th ed., p. 585). Wellesley-Cambridge Press.</p>
+
+<p>Rosen, K. H. (2006). Discrete Mathematics And Its Applications (6th ed.). McGraw-Hill Education.</p>
+
+<p>Prasolov, V. V. (1995). Intuitive topology. American Mathematical Society.</p>
+
+<p>Carter, N. (2009). Visual group theory. Mathematical Association of America.</p>
+
+<p>Spivak, M. (2008). Calculus (4th ed., p. 680). Publish or Perish.</p>
+
+<p>Sullivan, M. (2008). Precalculus (8th ed., p. 1152). Prentice Hall.</p>
+
+<p>Language of Polynomials (Version 1.0.0). https://github.com/ericung/languageofpolynomials</p>
+
+<p>Hamming, R. W. (1986). Numerical methods for scientists and engineers. Courier Corporation.</p>
+
+<p>Ung, E. (2023). Inferring Lindenmayer Systems. 1(1), 1–6. https://github.com/ericung/InferrenceSystems/blob/master/Resources/lindenmayer_systems.pdf</p>
+
+Weisstein, Eric W. "Field Axioms." From MathWorld--A Wolfram Web Resource. https://mathworld.wolfram.com/FieldAxioms.html
+
+Pinter, C. C. (2010). A book of abstract algebra (2nd ed.). Dover Publications.
+
+Ung, E. (2023). Applications For Monomial Deciders (Version 1.0.1).
+
+Ung, E. (2023). A Language Of Polynomials (Version 1.0.1).
+
+Ung, E. (2018). Inferring Lindenmayer Systems.
+
+Ung, E. icon-opengl.
+
+Ung, E. git_lsystem.
+
+                    </div>
+                    
+                    <br />
+                    <br />
+                    <hr />
+                                
+                    <footer>
+                        &copy; 2024 - <a href="https://www.linkedin.com/in/eric-ung-9028574b/">linkedin</a> - <a href="https://github.com/ericung">github</a> - <a href="https://www.instagram.com/ungericw/">instagram</a> - <a href="https://www.threads.net/@ungericw">threads</a> - <a href="https://twitter.com/EricWeichungUng">x</a>
+                    </footer>
+                    
+                </div>
+                <div id="middle" class="cell small-1">
+                </div>
+            </div>
+        </article>
+
+
+
+        </main>
+    </div>
+
+    
+    <script src="/lib/js/jquery.min.js"></script>
+    <script src="/lib/js/foundation.min.js"></script>
+    
+</body>
+</html>
+
