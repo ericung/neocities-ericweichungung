@@ -30,40 +30,12 @@
 Each slide can be formalized even further as their own research paper but presenting in this manner allows my ideas to give intuitive bearing so that it gives people from various backgrounds to come up with their own theories, ideas, and applications. On the other hand, this is also a formalized proof in my style of construction. Source to github is <a href="https://github.com/ericung/languageofpolynomials">here</a>.
     </p>
 
+<div id="1_1Foundations">
 <h3>1.1 Foundations</h3>
 
 <img src="https://raw.seadn.io/files/9f75ebe154270e7e46563d2c73d175ea.jpg"/>
 
-<latex-js>
-\documentclass{article}
-
-\begin{abstract}There exists a language such that it decides each monomial in the polynomial. In other words, there exists a set of deciders for each monomial in the polynomial where it decides if y is in the monomial.</p>
-\end{abstract}
-
-\begin{explanation}
-Given a polynomial p(x) = ax^2 + bx + c
-p(x) = 3x^2 + 4x + 5
-p(2) = 3(2)^2 + 4(2) + 5
-p(2) = 12 + 8 + 5
-\end{explanation}
-
-\begin{definition}
-Let the decider be defined as the following:
-Decider is a function Decider(constant, degree, x) <=> constant*x^degree == y
-such that
-x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y
-and x1 is the start
-and x<i>degree times</i> is the finish
-then loop around x1 to x<i>degree times</i> until it stops
-\end{definition}
-
-\begin{example}
-Decider for ax^2 is Decider(3,2,2) = 3(2)^2 == 12
-Decider for bx is Decider(4,2,1) = 4(2)^1 == 8
-Decider for c is Decider(1,2,1) = 5(2)^0 == 5
-\end{example}
-
-</latex-js>
+</div>
 
 <h3>1.2 Monomial of One Degree</h3>
 
@@ -818,6 +790,47 @@ Weisstein, Eric W. "Field Axioms." From MathWorld--A Wolfram Web Resource. https
     <script src="/lib/js/jquery.min.js"></script>
     <script src="/lib/js/foundation.min.js"></script>
     <script src="/lib/js/latex.js"></script>
+	
+    <script>
+        var 1_1Foundations = "
+\documentclass{article}
+
+\begin{abstract}There exists a language such that it decides each monomial in the polynomial. In other words, there exists a set of deciders for each monomial in the polynomial where it decides if y is in the monomial.</p>
+\end{abstract}
+
+\begin{explanation}
+Given a polynomial p(x) = ax^2 + bx + c
+p(x) = 3x^2 + 4x + 5
+p(2) = 3(2)^2 + 4(2) + 5
+p(2) = 12 + 8 + 5
+\end{explanation}
+
+\begin{definition}
+Let the decider be defined as the following:
+Decider is a function Decider(constant, degree, x) <=> constant*x^degree == y
+such that
+x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y
+and x1 is the start
+and x<i>degree times</i> is the finish
+then loop around x1 to x<i>degree times</i> until it stops
+\end{definition}
+
+\begin{example}
+Decider for ax^2 is Decider(3,2,2) = 3(2)^2 == 12
+Decider for bx is Decider(4,2,1) = 4(2)^1 == 8
+Decider for c is Decider(1,2,1) = 5(2)^0 == 5
+\end{example}
+
+</latex-js>
+";
+
+        var generator = new latexjs.HtmlGenerator({ hyphenate: false })
+
+        generator = latexjs.parse(1_1Foundations, { generator: generator })
+
+        document.head.appendChild(generator.stylesAndScripts(""))
+        document.getElementById("1_1Foundations").appendChild(generator.domFragment())
+    </script>
     
 </body>
 </html>
