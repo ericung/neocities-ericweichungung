@@ -6,6 +6,20 @@
     <title>Eric Wei-Chung Ung</title>
     <link rel="stylesheet" href="/lib/css/main.css" />
     <link rel="stylesheet" href="/lib/css/foundation.min.css" />
+	
+    <script type="module">
+        import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
+        customElements.define("latex-js", LaTeXJSComponent)
+    </script>
+
+    <style>
+        latex-js {
+            display: inline-block;
+            width: 40%;
+            border: 1px solid red;
+            margin-right: 2em;
+        }
+  </style>
 </head>
 <body>
     <div b-2ag8j027ey class="row">
@@ -820,11 +834,6 @@ Weisstein, Eric W. "Field Axioms." From MathWorld--A Wolfram Web Resource. https
     <script src="/lib/js/jquery.min.js"></script>
     <script src="/lib/js/foundation.min.js"></script>
     <script src="/lib/js/latex.js"></script>
-	
-    <script type="module">
-        import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
-        customElements.define("latex-js", LaTeXJSComponent)
-    </script>
 </body>
 </html>
 
