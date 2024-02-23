@@ -41,25 +41,25 @@ There exists a language such that it decides each monomial in the polynomial. In
 </p>
 
 <p>
-Given a polynomial p(x) = ax^2 + bx + c
-p(x) = 3x^2 + 4x + 5
-p(2) = 3(2)^2 + 4(2) + 5
+Given a polynomial p(x) = ax^2 + bx + c\linebreak
+p(x) = 3x^2 + 4x + 5\linebreak
+p(2) = 3(2)^2 + 4(2) + 5\linebreak
 p(2) = 12 + 8 + 5
 </p>
 
 <p>
-Let the decider be defined as the following:
+Let the decider be defined as the following:\linebreak
 Decider is a function Decider(constant, degree, x) <=> constant*x^degree == y
-such that
-x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y
-and x1 is the start
-and x<i>degree times</i> is the finish
+such that\linebreak
+x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y\linebreak
+and x1 is the start\linebreak
+and x<i>degree times</i> is the finish\linebreak
 then loop around x1 to x<i>degree times</i> until it stops
 </p>
 
 <p>
-Decider for ax^2 is Decider(3,2,2) = 3(2)^2 == 12
-Decider for bx is Decider(4,2,1) = 4(2)^1 == 8
+Decider for ax^2 is Decider(3,2,2) = 3(2)^2 == 12\linebreak
+Decider for bx is Decider(4,2,1) = 4(2)^1 == 8\linebreak
 Decider for c is Decider(1,2,1) = 5(2)^0 == 5
 </p>
 
