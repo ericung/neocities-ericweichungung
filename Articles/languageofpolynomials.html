@@ -6,7 +6,6 @@
     <title>Eric Wei-Chung Ung</title>
     <link rel="stylesheet" href="/lib/css/main.css" />
     <link rel="stylesheet" href="/lib/css/foundation.min.css" />
-	
 </head>
 <body>
     <div b-2ag8j027ey class="row">
@@ -21,11 +20,11 @@
                         <br />
                         <br />
                         <div>
-                                <h1>A Language of Polynomials</h1>
+                          <center><h1>A Language of Polynomials</h1></center>
                                 
-				<h3><b>By Eric Ung</b></h3>
+				<center>By Eric Ung</center><br/>
 
-				<h2>1. The One Way Function</h2>
+				<center><h2>1. The One Way Function</h2></center>
 
     <p>
 Each slide can be formalized even further as their own research paper but presenting in this manner allows my ideas to give intuitive bearing so that it gives people from various backgrounds to come up with their own theories, ideas, and applications. On the other hand, this is also a formalized proof in my style of construction. Source to github is <a href="https://github.com/ericung/languageofpolynomials">here</a>.
@@ -41,26 +40,27 @@ There exists a language such that it decides each monomial in the polynomial. In
 </p>
 
 <p>
-Given a polynomial p(x) = ax^2 + bx + c\linebreak
-p(x) = 3x^2 + 4x + 5\linebreak
-p(2) = 3(2)^2 + 4(2) + 5\linebreak
-p(2) = 12 + 8 + 5
+Given a polynomial<br/>
+$p(x) = ax^2 + bx + c$<br/>
+$p(x) = 3x^2 + 4x + 5$<br/>
+$p(2) = 3(2)^2 + 4(2) + 5$<br/>
+$p(2) = 12 + 8 + 5$
 </p>
 
 <p>
-Let the decider be defined as the following:\linebreak
-Decider is a function Decider(constant, degree, x) <=> constant*x^degree == y
-such that\linebreak
-x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y\linebreak
-and x1 is the start\linebreak
-and x<i>degree times</i> is the finish\linebreak
+Let the decider be defined as the following:<br/>
+Decider is a function $Decider(constant, degree, x) \equiv constant*x^{degree} = y$
+such that<br/>
+x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y
+and x1 is the start<br/>
+and x<i>degree times</i> is the finish<br/>
 then loop around x1 to x<i>degree times</i> until it stops
 </p>
 
 <p>
-Decider for ax^2 is Decider(3,2,2) = 3(2)^2 == 12\linebreak
-Decider for bx is Decider(4,2,1) = 4(2)^1 == 8\linebreak
-Decider for c is Decider(1,2,1) = 5(2)^0 == 5
+Decider for $ax^2$ is $Decider(3,2,2) = 3(2)^2 \equiv 12$<br/>
+Decider for $bx$ is $Decider(4,2,1) = 4(2)^1 \equiv 8$<br/>
+Decider for $c$ is $Decider(1,2,1) = 5(2)^0 \equiv 5$
 </p>
 
 </div>
@@ -69,48 +69,49 @@ Decider for c is Decider(1,2,1) = 5(2)^0 == 5
 
 <img src="https://raw.seadn.io/files/4cb6308ffe2e412653c4e97ef8d9f444.jpg"/>
 
-<pre>
-Given the definition of a decider:
-Decider is a function Decider(constant, x, degree) <=> constant*x^degree == y
+<br/>
 
-A decider of at least one degree
+Given the definition of a decider:<br/>
+Decider is a function $Decider(constant, x, degree) \equiv constant*x^{degree} = y$<br/><br/>
 
-Decider(3,4,x) <=> 3x^4 == y
-Contains Decider(3,x,3) <=> 3x^3 == y
-Contains Decider(3,x,2) <=> 3x^2 == y
-Contains Decider(3,x,1) <=> 3x^1 == y
-Contains Decider(3,x,0) <=> 3x^0 == y
+A decider of at least one degree<br/><br/>
 
-Hence it can be generalized to:
-Decider(constant,degree,x) contains the sequence set 
-{Decider(constant,degree,x),Decider(constant,degree-1,x),...,Decider(constant,0,x)}
-{start,...,finish}
-</pre>
+$Decider(3,4,x) <=> 3x^4 == y$<br/>
+$Contains Decider(3,x,3) <=> 3x^3 == y$<br/>
+$Contains Decider(3,x,2) <=> 3x^2 == y$<br/>
+$Contains Decider(3,x,1) <=> 3x^1 == y$<br/>
+$Contains Decider(3,x,0) <=> 3x^0 == y$<br/><br/>
+
+Hence it can be generalized to:<br/>
+Decider(constant,degree,x) contains the sequence set <br/>
+{Decider(constant,degree,x),Decider(constant,degree-1,x),...,Decider(constant,0,x)}<br/>
+{start,...,finish}<br/><br/>
 
 <h3>1.3 Addition</h3>
 
 <img src="https://raw.seadn.io/files/d96f3bac7ac6f73948312b45b9e84c84.jpg"/>
-<pre>
-Given the first example:
-p(x) = 3x^2 + 4x + 5
-p(2) = 3(2)^2 + 4(2) + 5
-p(2) = 12 + 8 + 5
 
-m2 = Decider(3,x,2) = 3x^2
-m1 = Decider(4,x,1) = 4x
-m0 = Decider(5,x,0) = 5
+<br/>
 
-Generalized to mx where x is the degree
+Given the first example:<br/>
+p(x) = 3x^2 + 4x + 5<br/>
+p(2) = 3(2)^2 + 4(2) + 5<br/>
+p(2) = 12 + 8 + 5<br/><br/>
 
-Given polynomial functions, p1 and p2, they are commutative
-p1(x) = ma + ... + m0
-p2(x) = nb + ... + n0
+m2 = Decider(3,x,2) = 3x^2<br/>
+m1 = Decider(4,x,1) = 4x<br/>
+m0 = Decider(5,x,0) = 5<br/><br/>
 
-p1(x) + p2(x) = ma + m[x+1] + nb + n[y+1] + ... + (mx + ny) + ... + (m0 + n0)
-where x == y
+Generalized to mx where x is the degree<br/>
 
-Decider(cx,x,dx) + Decider(cy,x,dy) = Decider(cx+cy,x,dx) = Deciders(cx+cy,x,dy) iff dx == dy
-</pre>
+Given polynomial functions, p1 and p2, they are commutative<br/>
+p1(x) = ma + ... + m0<br/>
+p2(x) = nb + ... + n0<br/><br/>
+
+p1(x) + p2(x) = ma + m[x+1] + nb + n[y+1] + ... + (mx + ny) + ... + (m0 + n0)<br/>
+where x == y<br/><br/>
+
+Decider(cx,x,dx) + Decider(cy,x,dy) = Decider(cx+cy,x,dx) = Deciders(cx+cy,x,dy) iff dx == dy<br/><br/>
 
 <h3>1.4 Product</h3>
 
@@ -362,7 +363,9 @@ Decider(c,x,d) contains Decider(c,x,d-1)
 d - 1 is then infinity too.
 </pre>
 
-<h2>2. Applications of Monomial Deciders</h2>
+<div style="break-after:page"></div>
+
+<center><h2>2. Applications of Monomial Deciders</h2></center>
 
 This is part 2 of the article, "A Language of Polynomials", with concrete examples of how to use it including constructing the one way function using the picking function. A link to github is <a href="https://github.com/ericung/ApplicationsForMonomialDeciders">here</a>.
 
@@ -651,7 +654,9 @@ x1 = 144, y1 = 89, z1 = 55, x2 = 34, y2 = 21, z2 = 13
 
 <img src="https://raw.seadn.io/files/fc6c93a7b2a2b58d89b98deb05cdf3ff.jpg"/>
 
-<h2>3. Inferrable Languages</h2>
+<div style="break-after:page"></div>
+
+<center><h2>3. Inferrable Languages</h2></center>
 The concept of statistics and blackboxes has been drawn out extensively in theories and applications for decades but what of languages and knowing what word can be used to generate the next series of words? Everyone guesses what words can come out of someone talking given enough experience. In this article, the idea of inferrable languages is presented which are languages that allow the next series of words in the sequence to be inferred given enough samples in the sequence.
 
 The article, Inferring Lindenmayer Systems, is about deterministically producing the next series of words given a complete sequence of words.
@@ -738,7 +743,9 @@ Let's apply this idea with the monomial decider and picking function from the fo
 
 <img src="https://raw.seadn.io/files/c8d6054eb3992b7b29f97f1ab7c23cf8.jpg"/>
 
-<h1>References</h1>
+<div style="break-after:page"></div>
+
+<center><h1>References</h1></center>
 <p>Berstel, J., & Reutenauer, C. (2010). Noncommutative rational series with applications. Cambridge University Press.</p>
 
 <p>Sipser, M. (2006). Theory of Computation (2nd ed., p. 431). Course Technology, Cengage Learning.</p>
@@ -810,6 +817,8 @@ Weisstein, Eric W. "Field Axioms." From MathWorld--A Wolfram Web Resource. https
                 <div id="middle" class="cell small-1">
                 </div>
             </div>
+                <div id="middle" class="cell small-1">
+                </div>
         </article>
 
         </main>
@@ -818,8 +827,10 @@ Weisstein, Eric W. "Field Axioms." From MathWorld--A Wolfram Web Resource. https
     <script src="/lib/js/jquery.min.js"></script>
     <script src="/lib/js/foundation.min.js"></script>
     <script src="/lib/js/latex.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true }, "HTML-CSS": { availableFonts: ["TeX"] } });
+    </script>
 </body>
 </html>
 
