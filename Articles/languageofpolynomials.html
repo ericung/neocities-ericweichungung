@@ -677,25 +677,25 @@ Let's apply this idea with the monomial decider and picking function from the fo
 
 <p>Operations for the right hand side (RHS) versus the left hand side (LHS) represents different operations of the string in different scenarios</p>
 
-<p>RHS Evaluation</p>
-<p>Right to Left</p>
-<p>+ Remove from the back</p>
-<p>- Add to the front</p>
-<p>abaababa = - abaab + b - ab + a -aba</p>
-<p>abaababa = - abaab + b - ab -ab</p>
-<p>abaababa = - abaab + b - abab</p>
-<p>abaababa = - abaab - aba</p>
-<p>abaababa = - abaababa</p>
+<p><b>RHS Evaluation</b><br/>
+Right to Left<br/>
++ Remove from the back<br/>
+- Add to the front<br/>
+abaababa = - abaab + b - ab + a -aba<br/>
+abaababa = - abaab + b - ab -ab<br/>
+abaababa = - abaab + b - abab<br/>
+abaababa = - abaab - aba<br/>
+abaababa = - abaababa</p>
 
-<p>LHS Evaluation</p>
-<p>Left to Right</p>
-<p>+ Remove at the front</p>
-<p>- Add to the back</p>
-<p>abaababa + abaab - b + ab - a = -aba</p>
-<p>aba - b + ab - a = -aba</p>
-<p>abab + ab - a = -aba</p>
-<p>ab - a = -aba</p>
-<p>aba = -aba</p>
+<p><b>LHS Evaluation</b><br/>
+Left to Right<br/>
++ Remove at the front<br/>
+- Add to the back<br/>
+abaababa + abaab - b + ab - a = -aba<br/>
+aba - b + ab - a = -aba<br/>
+abab + ab - a = -aba<br/>
+ab - a = -aba<br/>
+aba = -aba</p>
 
 <h3>3.34. The Law of Commutativity and Noncommutativity</h3>
 
