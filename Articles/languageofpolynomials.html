@@ -21,8 +21,14 @@
                         <br />
                         <div>
                           <center><h1>A Language of Polynomials</h1></center>
+                
+        <br/>
+        <br/>
                                 
-				<center>By Eric Ung</center><br/>
+				<center>Eric Ung</center>
+				
+				<br/>
+				<br/>
 
 				<center><h2>1. The One Way Function</h2></center>
 
@@ -49,7 +55,7 @@ $p(2) = 12 + 8 + 5$
 
 <p>
 Let the decider be defined as the following:<br/>
-Decider is a function $Decider(constant, degree, x) \equiv constant*x^{degree} = y$
+Decider is a function $Decider(constant, x, degree) \equiv constant*x^{degree} = y$
 such that<br/>
 x1 * x2 * ... * x<i>degree times</i> * <i>constant times</i> is tested to be equivalent to y
 and x1 is the start<br/>
@@ -76,11 +82,11 @@ Decider is a function $Decider(constant, x, degree) \equiv constant*x^{degree} =
 
 A decider of at least one degree<br/><br/>
 
-$Decider(3,4,x) <=> 3x^4 == y$<br/>
-$Contains Decider(3,x,3) <=> 3x^3 == y$<br/>
-$Contains Decider(3,x,2) <=> 3x^2 == y$<br/>
-$Contains Decider(3,x,1) <=> 3x^1 == y$<br/>
-$Contains Decider(3,x,0) <=> 3x^0 == y$<br/><br/>
+$Decider(3,x,4) \equiv 3x^4 = y$<br/>
+$Contains Decider(3,x,3) \equiv 3x^3 = y$<br/>
+$Contains Decider(3,x,2) \equiv 3x^2 = y$<br/>
+$Contains Decider(3,x,1) \equiv 3x^1 = y$<br/>
+$Contains Decider(3,x,0) \equiv 3x^0 = y$<br/><br/>
 
 Hence it can be generalized to:<br/>
 Decider(constant,degree,x) contains the sequence set <br/>
@@ -369,19 +375,19 @@ d - 1 is then infinity too.
 
 This is part 2 of the article, "A Language of Polynomials", with concrete examples of how to use it including constructing the one way function using the picking function. A link to github is <a href="https://github.com/ericung/ApplicationsForMonomialDeciders">here</a>.
 
-<h3>2.18 Starting With A Theorem Of Infiniteness</h3>
+<h3>2.1 Starting With A Theorem Of Infiniteness</h3>
 
 <img src="https://raw.seadn.io/files/355f7480e3c00dca91baa5e6396a3c1e.jpg"/>
 
-<h3>2.19 Mapping Out Worlds</h3>
+<h3>2.2 Mapping Out Worlds</h3>
 
 <img src="https://raw.seadn.io/files/d7aa0fb86ec30bdf2e6cd21f9ff99684.jpg"/>
 
-<h3>2.20 Euler's Constant</h3>
+<h3>2.3 Euler's Constant</h3>
 
 <img src="https://raw.seadn.io/files/89d733a5810431c70a9ca749ac1ad5ef.jpg"/>
 
-<h3>2.21 Sketching Into Code</h3>
+<h3>2.4 Sketching Into Code</h3>
 
 <img src="https://raw.seadn.io/files/a41d6f9e8ada79ef18b0ead8acc9a4e7.jpg"/>
 
@@ -415,7 +421,7 @@ bool generalizedMD(int y)
 }
 </pre>
 
-<h3>2.22 Gather Some Data</h3>
+<h3>2.5 Gather Some Data</h3>
 
 <img src="https://raw.seadn.io/files/eb31664e64ddaf6b9f375981c29343c6.jpg"/>
 
@@ -457,7 +463,7 @@ int[] Generator(int max)
 </pre>
 Logs for the curious.
 
-<h3>2.23 Representing Monomial Deciders As Code</h3>
+<h3>2.6 Representing Monomial Deciders As Code</h3>
 
 <img src="https://raw.seadn.io/files/a958de4ea888bf0334fb40748f204510.jpg"/>
 
@@ -516,15 +522,15 @@ bool MonomialDecider2xx(int y)
 
 Logs for the curious.
 
-<h3>2.24 Negative Numbers</h3>
+<h3>2.7 Negative Numbers</h3>
 
 <img src="https://raw.seadn.io/files/568874f7852af4b7ee4cc2d3fd58f309.jpg"/>
 
-<h3>2.25 Pi</h3>
+<h3>2.8 Pi</h3>
 
 <img src="https://raw.seadn.io/files/ed6b0ade60a1c9a561ff82b6923f5f2d.jpg"/>
 
-<h3>2.26 Fibonacci</h3>
+<h3>2.9 Fibonacci</h3>
 
 <img src="https://raw.seadn.io/files/6800e6a3ac49fd70869c386db6c1cf66.jpg"/>
 
@@ -574,11 +580,11 @@ f(	14	) =		377		Ex = 0		eY = 1
 </pre>
 Logs for the curious.
 
-<h3>2.27 Analysis Of Parity In Fibonacci</h3>
+<h3>2.10 Analysis Of Parity In Fibonacci</h3>
 
 <img src="https://raw.seadn.io/files/c34040025bc28cb993857bff5edfbbe9.jpg"/>
 
-<h3>2.28 Redrawing the Fibonacci Sequence</h3>
+<h3>2.11 Redrawing the Fibonacci Sequence</h3>
 
 <img src="https://raw.seadn.io/files/bf5eb9dce0f79879f1d58ad07d41218f.jpg"/>
 
@@ -631,7 +637,7 @@ int fibonacciGenerator(int n)
 
 Logs for the curious.
 
-<h3>2.29 The Fibonacci Decider</h3>
+<h3>2.12 The Fibonacci Decider</h3>
 
 <img src="https://raw.seadn.io/files/f3bc75ac1efffa0f55c1a9b6310378dc.jpg"/>
 
@@ -650,7 +656,7 @@ x1 = 144, y1 = 89, z1 = 55, x2 = 34, y2 = 21, z2 = 13
 55 = 144 - 89 + 13 - 34 + 21 = 55
 </pre>
 
-<h3>2.30 The Fibonacci Picking Function</h3>
+<h3>2.13 The Fibonacci Picking Function</h3>
 
 <img src="https://raw.seadn.io/files/fc6c93a7b2a2b58d89b98deb05cdf3ff.jpg"/>
 
@@ -663,15 +669,15 @@ The article, Inferring Lindenmayer Systems, is about deterministically producing
 
 Let's apply this idea with the monomial decider and picking function from the following article, Applications for Monomial Deciders. A link to github is <a href="https://github.com/ericung/InferrableLanguages">here</a>.
 
-<h3>3.31 Applying The Fibonnaci Decider</h3>
+<h3>3.1 Applying The Fibonnaci Decider</h3>
 
 <img src="https://raw.seadn.io/files/4d78375a8d4aa1b196944f499c64c1dc.jpg"/>
 
-<h3>3.32 Fibonacci DOL Decider Left Hand Side</h3>
+<h3>3.2 Fibonacci DOL Decider Left Hand Side</h3>
 
 <img src="https://raw.seadn.io/files/9f29ed9da88911532a7a6197fb72b172.jpg"/>
 
-<h3>3.33 Fibonacci DOL Decider Right Hand Side</h3>
+<h3>3.3 Fibonacci DOL Decider Right Hand Side</h3>
 
 <img src="https://raw.seadn.io/files/c3be2170f49babc5fdf33d809878994a.jpg"/>
 
@@ -697,35 +703,35 @@ abab + ab - a = -aba<br/>
 ab - a = -aba<br/>
 aba = -aba</p>
 
-<h3>3.34. The Law of Commutativity and Noncommutativity</h3>
+<h3>3.4 The Law of Commutativity and Noncommutativity</h3>
 
 <img src="https://raw.seadn.io/files/67632cc44bc971351c6e3102eab2d6eb.jpg"/>
 
-<h3>3.35 Definition Of Support</h3>
+<h3>3.5 Definition Of Support</h3>
 
 <img src="https://raw.seadn.io/files/b69e5a10825c837924f814b3519fa5eb.jpg"/>
 
-<h3>3.36 Rationals Of Picking Function</h3>
+<h3>3.6 Rationals Of Picking Function</h3>
 
 <img src="https://raw.seadn.io/files/03ae688297001f27e99f59b741ca12cd.jpg"/>
 
-<h3>3.37 Support Of Picking Function</h3>
+<h3>3.7 Support Of Picking Function</h3>
 
 <img src="https://raw.seadn.io/files/78a36c11bb6fc6a43bf97f220e756c1d.jpg"/>
 
-<h3>3.38 Law Of Strings</h3>
+<h3>3.8 Law Of Strings</h3>
 
 <img src="https://raw.seadn.io/files/017630a0bee86bd4dcaab8dcc45d59fc.jpg"/>
 
-<h3>3.39 Commutativity Of Addition</h3>
+<h3>3.9 Commutativity Of Addition</h3>
 
 <img src="https://raw.seadn.io/files/69759f9f4439877539da5ff830b7a2ed.jpg"/>
 
-<h3>3.40 Commutativity Of Multiplication</h3>
+<h3>3.10 Commutativity Of Multiplication</h3>
 
 <img src="https://raw.seadn.io/files/985f81cafb37aa12095a558138d77f8d.jpg"/>
 
-<h3>3.41 Additive Identity</h3>
+<h3>3.11 Additive Identity</h3>
 
 <img src="https://raw.seadn.io/files/ef54595ff298bea45c1b87822196da2e.jpg"/>
 
@@ -735,39 +741,39 @@ The LHS and RHS are equations that test whether or not they are true or false, o
 01 != 10 evaluates to true or 1 too.
 </p>
 
-<h3>3.42 Multiplicative Identity</h3>
+<h3>3.12 Multiplicative Identity</h3>
 
 <img src="https://raw.seadn.io/files/2b0954091350a91706c4600cc2671458.jpg"/>
 
-<h3>3.43 Additive Inverse</h3>
+<h3>3.13 Additive Inverse</h3>
 
 <img src="https://raw.seadn.io/files/6e35ff699cb408a7d0ee1736bc947bbd.jpg"/>
 
-<h3>3.44 Multiplicative Inverse</h3>
+<h3>3.14 Multiplicative Inverse</h3>
 
 <img src="https://raw.seadn.io/files/a203740ef9e3937930ddf1dd137cb82c.jpg"/>
 
-<h3>3.45 Generalized Operations</h3>
+<h3>3.15 Generalized Operations</h3>
 
 <img src="https://raw.seadn.io/files/3612f8d4e5c8588467c5a1cb38e8cf24.jpg"/>
 
-<h3>3.46 Generalized Communativity</h3>
+<h3>3.16 Generalized Communativity</h3>
 
 <img src="https://raw.seadn.io/files/fc35b1ea97496b08b33dd6b9011e54a6.jpg"/>
 
-<h3>3.47 Associativity Of Addition</h3>
+<h3>3.17 Associativity Of Addition</h3>
 
 <img src="https://raw.seadn.io/files/36e88869cd1ed4ef3aef40160653ccb6.jpg"/>
 
-<h3>3.48 Associativity Of Multiplication</h3>
+<h3>3.18 Associativity Of Multiplication</h3>
 
 <img src="https://raw.seadn.io/files/6d807a2356203ced6aa0e96b61246bb9.jpg"/>
 
-<h3>3.49 Distibutivity</h3>
+<h3>3.19 Distibutivity</h3>
 
 <img src="https://raw.seadn.io/files/34f6f1d185bca9b4c530bbd66d418d8b.jpg"/>
 
-<h3>3.50 Field</h3>
+<h3>3.20 Field</h3>
 
 <img src="https://raw.seadn.io/files/c8d6054eb3992b7b29f97f1ab7c23cf8.jpg"/>
 
