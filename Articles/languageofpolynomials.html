@@ -675,6 +675,28 @@ Let's apply this idea with the monomial decider and picking function from the fo
 
 <img src="https://raw.seadn.io/files/c3be2170f49babc5fdf33d809878994a.jpg"/>
 
+<p>Operations for the right hand side (RHS) versus the left hand side (LHS) represents different operations of the string in different scenarios</p>
+
+<p>RHS Evaluation</p>
+<p>Right to Left</p>
+<p>+ Remove from the back</p>
+<p>- Add to the front</p>
+<p>abaababa = - abaab + b - ab + a -aba</p>
+<p>abaababa = - abaab + b - ab -ab</p>
+<p>abaababa = - abaab + b - abab</p>
+<p>abaababa = - abaab - aba</p>
+<p>abaababa = - abaababa</p>
+
+<p>LHS Evaluation</p>
+<p>Left to Right</p>
+<p>+ Remove at the front</p>
+<p>- Add to the back</p>
+<p>abaababa + abaab - b + ab - a = -aba</p>
+<p>aba - b + ab - a = -aba</p>
+<p>abab + ab - a = -aba</p>
+<p>ab - a = -aba</p>
+<p>aba = -aba</p>
+
 <h3>3.34. The Law of Commutativity and Noncommutativity</h3>
 
 <img src="https://raw.seadn.io/files/67632cc44bc971351c6e3102eab2d6eb.jpg"/>
