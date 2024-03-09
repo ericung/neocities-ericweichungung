@@ -100,21 +100,21 @@ $\{start,...,finish\}$<br/><br/>
 <br/>
 
 Given the first example:<br/>
-p(x) = 3x^2 + 4x + 5<br/>
-p(2) = 3(2)^2 + 4(2) + 5<br/>
-p(2) = 12 + 8 + 5<br/><br/>
+$p(x) = 3x^{2} + 4x + 5$<br/>
+$p(2) = 3(2)^{2} + 4(2) + 5$<br/>
+$p(2) = 12 + 8 + 5$<br/><br/>
 
-m2 = Decider(3,x,2) = 3x^2<br/>
-m1 = Decider(4,x,1) = 4x<br/>
-m0 = Decider(5,x,0) = 5<br/><br/>
+$m2 = Decider(3,x,2) = 3x^{2}$<br/>
+$m1 = Decider(4,x,1) = 4x$<br/>
+$m0 = Decider(5,x,0) = 5$<br/><br/>
 
 Generalized to mx where x is the degree<br/>
 
 Given polynomial functions, p1 and p2, they are commutative<br/>
-p1(x) = ma + ... + m0<br/>
-p2(x) = nb + ... + n0<br/><br/>
+$p1(x) = ma + ... + m0$<br/>
+$p2(x) = nb + ... + n0$<br/><br/>
 
-$p1(x) + p2(x) = ma + m[x+1] + nb + n[y+1] + ... + (mx + ny) + ... + (m0 + n0)\ where\ x \equiv y$
+$p1(x) + p2(x) = ma + m[x+1] + nb + n[y+1] + ... + (mx + ny) + ... + (m0 + n0)\ where\ x \equiv y$<br/>
 
 $Decider(cx,x,dx) + Decider(cy,x,dy) = Decider(cx+cy,x,dx) = Deciders(cx+cy,x,dy)\ \iff\ dx \equiv dy$<br/><br/>
 
