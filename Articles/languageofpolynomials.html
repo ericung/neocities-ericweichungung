@@ -122,7 +122,22 @@ $Decider(cx,x,dx) + Decider(cy,x,dy) = Decider(cx+cy,x,dx) = Deciders(cx+cy,x,dy
 
 <img src="https://raw.seadn.io/files/fceb209b615326b8e5547bf0b661fb0e.jpg"/>
 
-Given two monomials in the language, a and b, the product of a and b is also in the language.
+<br/><br/>
+
+Given two monomials in the language, a and b, the product of a and b is also in the language.<br/><br/>
+
+$Given\ Decider(cx,x,dx)\ and\ Decider(cy,x,dy)\ is\ in\ language\ L$
+$Show\ that\ the\ product\ Decider(cy,x,2*dy)\ is\ in\ L$<br/>
+
+$Decider(cx,x,dx) * Decider(cy,x,dy) $<br/>
+
+$= cx*x^{dx} * cy*x^{dy} $<br/>
+
+$= cx*x^{dx+dy}$<br/>
+
+$\equiv cx*x^{dx+dy}\ is\ in\ L$<br/>
+
+<br/><br/>
 
 <h3>1.5 Problem with Matrices</h3>
 
