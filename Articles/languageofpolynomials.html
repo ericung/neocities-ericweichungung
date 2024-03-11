@@ -69,7 +69,16 @@ Decider for $bx$ is $Decider(4,2,1) = 4(2)^1 \equiv 8$<br/>
 Decider for $c$ is $Decider(1,2,1) = 5(2)^0 \equiv 5$
 </p>
 
-</div>
+A <b>Turing Machine</b> can be defined as the following:<br/>
+
+1. Q is the set of states<br/>
+2. Sigma is the input alphabet not containing the blank symbol u<br/>
+3. Tau is the tape alphabet where u is in tau and sigma is in tau<br/>
+4. Sigma: Q x T => Q x Tau x {L, R} is the transition function<br/>
+5. q0 is in Q is the start state<br/>
+6. qaccept is in Q is the accept state<br/>
+7. qreject is in Q is the reject state where qreject != qaccept<br/>
+
 
 <h3>1.2 Monomial of One Degree</h3>
 
@@ -171,9 +180,9 @@ A monomial with more than one variable can be treated the same way as handling s
 
 <p>$Decider(c,x,d1)*Decider(c,y,d2)*Decider(c,z,d3)\ =\ cx^{d1}*y^{d2}*z^{d3}\ where\ c\ is\ some\ constant$</p>
 
-<br/><br/>
+<br/>
 
-$Given f(x,y)=3xy^{2}$<br/>
+$Given\ f(x,y)=3xy^{2}$<br/>
 $set\ x = 2, y = 3$<br/>
 $f(2,3) = 3(2)(3)^{2}$<br/>
 $f(2,3) = 27$
@@ -334,7 +343,7 @@ Determining if y is in f(x) is easy if we are given any monomial decider in the 
 $
 Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) \\
     \equiv {sequence\ of\ permutations\ of\ {xi,xj,xk}\ \\
-      such\ that\ the\ count\ of\ i\ is\ 4\ and\ j\ is\ 1\ and\ k\ 1}
+        such\ that\ the\ count\ of\ i\ is\ 4\ and\ j\ is\ 1\ and\ k\ 1}
 $
 
 <br/>
@@ -343,7 +352,7 @@ $
 $
 Decider(1,x,6)/Decider(1,x,2) \\
     \equiv {sequence\ of\ permutations\ of\ {xi,xj}\ \\
-      such\ that\ the\ count\ of\ i\ is\ 4\ and\ i\ is\ 2}
+        such\ that\ the\ count\ of\ i\ is\ 4\ and\ i\ is\ 2}
 $
 
 <br/>
@@ -356,8 +365,8 @@ $
 $
 Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) \\
     \equiv Decider(1,x,6)/Decider(1,x,2) \\
-      such\ that\ there\ is\ some\ x \\
-      such\ that\ the\ monomial\ represented\ by\ both\ deciders\ exists\ where\ f(x) \equiv y
+        such\ that\ there\ is\ some\ x \\
+        such\ that\ the\ monomial\ represented\ by\ both\ deciders\ exists\ where\ f(x) \equiv y
 $ 
 
 <br/>
