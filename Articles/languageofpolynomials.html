@@ -251,33 +251,41 @@ There is no state in the decider where it loops back to the start. In other word
 
 <p>Division of monomial deciders</p>
 
-<pre>
-x^5 / x = x^4 <=> Decider(1,x,5)/Decider(1,x,1) ~ Decider(1,x,4)
+<br/>
 
-x^5 / x^2 = x^3 <=> Decider(1,x,5)/Decider(1,x,2) ~ Decider(1,x,3)
+x^5 / x = x^4 \equiv Decider(1,x,5)/Decider(1,x,1) ~ Decider(1,x,4)
 
-x^5 / x^3 = x^2 <=> Decider(1,x,5)/Decider(1,x,3) ~ Decider(1,x,2)
+<br/>
+x^5 / x^2 = x^3 \equiv Decider(1,x,5)/Decider(1,x,2) ~ Decider(1,x,3)
+<br/>
 
-x^5 / x^4 = x^1 <=> Decider(1,x,5)/Decider(1,x,4) ~ Decider(1,x,1)
+x^5 / x^3 = x^2 \equiv Decider(1,x,5)/Decider(1,x,3) ~ Decider(1,x,2)
+<br/>
 
-x^5 / x^5 = 1 <=> Decider(1,x,5)/Decider(1,x,5) ~ Decider(1,x,0)
-</pre>
+x^5 / x^4 = x^1 \equiv Decider(1,x,5)/Decider(1,x,4) ~ Decider(1,x,1)
+<br/>
+
+x^5 / x^5 = 1 \equiv Decider(1,x,5)/Decider(1,x,5) ~ Decider(1,x,0)
+<br/>
 
 ~ here is represented as a special kind of equivalence that we will get to later.
 
-<pre>
-Decider(1,x,5)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and j is 1}
+<br/>
+Decider(1,x,5)/Decider(1,x,1) $\equiv$ {sequence of permutations of {xi,xj} such that the count of i is 4 and j is 1}
 
-Decider(1,x,5)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 3 and j is 2}
+<br/>
+Decider(1,x,5)/Decider(1,x,2) $\equiv$ {sequence of permutations of {xi,xj} such that the count of i is 3 and j is 2}
 
-Decider(1,x,5)/Decider(1,x,3) <=> {sequence of permutations of {xi,xj} such that the count of i is 2 and j is 3}
+<br/>
+Decider(1,x,5)/Decider(1,x,3) $\equiv$ {sequence of permutations of {xi,xj} such that the count of i is 2 and j is 3}
 
-Decider(1,x,5)/Decider(1,x,4) <=> {sequence of permutations of {xi,xj} such that the count of i is 1 and j is 4}
+<br/>
+Decider(1,x,5)/Decider(1,x,4) $\equiv$ {sequence of permutations of {xi,xj} such that the count of i is 1 and j is 4}
 
-Decider(1,x,5)/Decider(1,x,5) <=> {sequence of permutations of {xi,xj} such that the count of i is 0 and j is 5}
+<br/>
+Decider(1,x,5)/Decider(1,x,5) $\equiv$ {sequence of permutations of {xi,xj} such that the count of i is 0 and j is 5}
 
-Here, xi != xj, meaning xi is of a different representation than xj
-</pre>
+Here, xi $\neq$ xj, meaning xi is of a different representation than xj
 
 <h3>1.11 Multiple Divisions</h3>
 
