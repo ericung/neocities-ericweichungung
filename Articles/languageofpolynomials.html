@@ -304,7 +304,7 @@ Here, xi $\neq$ xj, meaning xi is of a different representation than xj
 <br/>
 
 Given multiple operations of division, this forms an interesting space. <br/>
-$x^{5}/x^{2}/x = (x^{5}/x)/x^{2}
+$x^{5}/x^{2}/x = (x^{5}/x)/x^{2}$
 
 <br/>
 $Decider(1,x,5)/Decider(1,x,2)/Decider(1,x,1) \equiv Decider(1,x,5)/Decider(1,x,1)/Decider(1,x,2)$
@@ -317,39 +317,42 @@ iff ignoring order of operations
 
 <img src="https://raw.seadn.io/files/461399d26480185147f88d7356802314.jpg"/>
 
-<pre>
-Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) ~ Decider(1,x,6)/Decider(1,x,2)
+$Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) \sim Decider(1,x,6)/Decider(1,x,2)$
 iff the order of operations is next to each other
-</pre>
 
-<p>
+<br/>
+
 Determining if y is in f(x) is easy if we are given any monomial decider in the set of the language of polynomials and their representations has the possibility to give different representations if we consider them as representations of the function f(x).
-</p>
 
-<pre>
-Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj,xk} such that the count of i is 4 and j is 1 and k 1}
+<br/>
 
-Decider(1,x,6)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}
-</pre>
+$Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) \equiv {sequence of permutations of {xi,xj,xk} such that the count of i is 4 and j is 1 and k 1}$
+
+$Decider(1,x,6)/Decider(1,x,2) \equiv {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}$
 
 <b>Theorem of Equivalence</b>
 
-<pre>
-Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) == Decider(1,x,6)/Decider(1,x,2) such that there is some x 
-such that the monomial represented by both deciders exists where f(x) == y
-</pre>
+$Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) \equiv Decider(1,x,6)/Decider(1,x,2)$ such that there is some x 
+such that the monomial represented by both deciders exists where $f(x) \equiv y$
 
 <h3>1.13 Reversing</h3>
 
 <img src="https://raw.seadn.io/files/32081555fdc28346354d30e2af60e4de.jpg"/>
 
-<pre>
-Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) <=> {sequence of permutations of {xi,xj,xk} such that the count of i is 4 and j is 1 and k 1}
+<br/>
 
-Decider(1,x,6)/Decider(1,x,2) <=> {sequence of permutations of {xi,xj} such that the count of i is 4 and i is 2}
-</pre>
+$Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) \equiv {sequence\ of\ permutations\ of\ {xi,xj,xk}\ such\ that\ the\ count\ of\ i\ is\ 4\ and\ j\ is\ 1\ and\ k\ 1}$
 
-Is shown that by the permutation of the order of operations that Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1) is not the same set as Decider(1,x,6)/Decider(1,x,2)
+<br/>
+
+$Decider(1,x,6)/Decider(1,x,2) \equiv {sequence\ of\ permutations\ of\ {xi,xj}\ such\ that\ the\ count\ of\ i\ is\ 4\ and\ i\ is\ 2}$
+
+<br/>
+
+Is shown that by the permutation of the order of operations that $Decider(1,x,6)/Decider(1,x,1)/Decider(1,x,1)$ is not the same set as $Decider(1,x,6)/Decider(1,x,2)$
+
+<br/>
+<br/>
 
 <b>Theorem of Reversing</b>
 <pre>
