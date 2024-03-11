@@ -207,15 +207,13 @@ In both these examples, xstart is x1 and xfinish is x6.
 
 <p>Given a polynomial, p(x), with a monomial decider represented as ax^n in p(x) and n in N and a = 1 such that p(x) = x^n, there is special property for these monomial deciders that can be illustrated below.</p>
 
-<pre>
-Decider(1,x,4) <=> x^4 <=> {xi such that i is in {start,2,3,finish} and xi contains xi-1 where i > 1}
+$Decider(1,x,4) \equiv x^4 \equiv {xi\ such\ that\ i\ is\ in\ {start,2,3,finish}\ and\ xi\ contains\ xi-1\ where\ i\ >\ 1}$
 
-Decider(1,x,2) <=> x^2 <=> {xi such that i is in {start,finish} and xi contains xi-1 where i > 1}
+$Decider(1,x,2)\ \equiv x^{2}\ \equiv {xi\ such\ that\ i\ is\ in\ {start,finish}\ and\ xi\ contains\ xi-1\ where\ i\ >\ 1}$
 
 In both these examples, xi is a state in the monomial decider.
-</pre>
 
-<p>Each state in a one constant monomial decider have a property of being concentric. This means that a state can be defined as, x2 <=> (x1,x0) so going from x1 to x0 then going to the next state x3 or looping back to x1.</p>
+<p>Each state in a one constant monomial decider have a property of being concentric. This means that a state can be defined as, x2 $\equiv$ (x1,x0) so going from x1 to x0 then going to the next state x3 or looping back to x1.</p>
 
 <h3>1.9 Constants</h3>
 
